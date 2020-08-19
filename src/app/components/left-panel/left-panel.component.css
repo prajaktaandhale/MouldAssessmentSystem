@@ -1,0 +1,30 @@
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: space-around;
+}
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 90%;
+  margin: 10px;
+  height: 100%;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+.icon-color {
+    color: gold;
+}
+.card-font-color {
+    color: white;
+    font-weight: 450;
+}
+.box-part {
+    background-color: rgb(50, 87, 168);
+    text-align: left;
+    padding-left: 20px;
+}
+.card-body {
+    padding: 0.25rem;
+}
