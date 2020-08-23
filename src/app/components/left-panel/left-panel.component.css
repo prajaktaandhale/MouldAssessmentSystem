@@ -1,7 +1,6 @@
 .flex-container {
   display: flex;
   flex-direction: column;
-  background-color: white;
   justify-content: space-around;
 }
 .flex-container > div {
@@ -27,4 +26,17 @@
 }
 .card-body {
     padding: 0.25rem;
+}
+.side-nav__custom {
+  border-top: 2px solid white;
+  padding-top: 15px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.sb-heading {
+  font-weight: 500;
+  font-size: 0.9rem;
 }

@@ -7,3 +7,40 @@
     line-height: inherit;
     white-space: nowrap;
 }
+.header {
+    height: 80px;
+    margin-top: -16px;
+    padding: 12px;
+    font-weight: bold;
+    background-color: #4e73df;
+}
+
+.header--title {
+    margin-top: 8px;
+}
+
+.main-header__logo {
+    height: 50px;
+    width: 110px;
+    margin: 0 16px;
+}
+
+.loading {
+    margin-top: 20%;
+    display: block;
+    margin-left: 45%;
+}
+
+.options-icon {
+    color: white;
+    display: inline-block;
+}
+
+.options-menu {
+    margin-left: 95%;
+    margin-top: -40px;
+}
+
+*:focus {
+    outline: 0;
+}

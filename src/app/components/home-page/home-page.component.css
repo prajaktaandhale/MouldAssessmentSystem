@@ -1,3 +1,9 @@
 .flex-container {
     display:flex;
 }
+.loginPage {
+    background-image: linear-gradient(to right, rgba(0,0,255,0.3), rgba(0,0,255, 0.1));
+    background-size: cover;
+    height: 100vh;
+    color: white;
+}
