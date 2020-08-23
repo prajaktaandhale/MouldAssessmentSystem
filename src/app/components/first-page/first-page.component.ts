@@ -32,6 +32,7 @@ export class FirstPageComponent implements OnInit {
     }
     const email = form.value.email;
     const password = form.value.password;
+    const username = form.value.username;
 
     let authObs: Observable<AuthResponseData>;
     

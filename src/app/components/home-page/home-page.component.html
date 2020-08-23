@@ -1,14 +1,18 @@
 <div class="clearfix">
     <app-header></app-header>
     <div>
-        <div class="col-sm-3" style="max-width: 35.33333%;margin-top: 6%;">
+        <div class="row clearfix float-right">
+            <app-dashboard></app-dashboard>
+        </div>
+    </div>
+    
+    <div >
+        <div class="col-sm-3 clearfix" style="max-width: 35.33333%;margin-top: 6%;">
             <app-left-panel></app-left-panel>
         </div>
-        <div class="col-sm-6 clearfix" style="max-width: 64%;">
-            <div class="col-sm-12 clearfix" style="margin-left: -10%;">
-                <app-dashboard></app-dashboard>
-            </div>
-            <div class="clearfix">
+        <div class="col-sm-6 row clearfix" style="max-width: 66%;">
+            
+            <div class="clearfix row" style="margin-top:12%;">
                 <router-outlet></router-outlet>
             </div>
         </div>
