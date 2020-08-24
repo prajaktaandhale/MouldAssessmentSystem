@@ -22,7 +22,7 @@ export class LoginServiceService {
   signup(email: string, password: string) {
     return this.http
       .post<AuthResponseData>(
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAZ4brcaN10D4VlS9h6Erdi3dtb9BGtfzM",
+        "http://localhost:8080/register",
         {
           email: email,
           password: password,
@@ -34,7 +34,7 @@ export class LoginServiceService {
 
   login(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAZ4brcaN10D4VlS9h6Erdi3dtb9BGtfzM",
+      "http://localhost:8080/login",
       {
         email: email,
         password: password,
@@ -43,6 +43,10 @@ export class LoginServiceService {
     )
     .pipe(
       );
+  }
+
+  fetchData() {
+    return this.http.get("http://localhost:8080/getPolygonData");
   }
 
   private handleError(errorRes : HttpErrorResponse) {

@@ -42,14 +42,10 @@
     font-size:20px;
   }
   .loginpage {
-    background-image: url('src\assets\img\NewModernPNG.png');
+    background-image: linear-gradient(rgba(111, 208, 234 , 0.5), rgba(203, 217, 224, 0.7)),url('src\assets\img\NewModernPNG.png');
     width: 100%;
     height: 100%;
     z-index : -1;
-  }
-  .border {
-    border: 3px solid !important;
-    border-color: blueviolet !important;
   }
   .image-tag {
     background-image: url('src\assets\img\MouldHomePage.png');

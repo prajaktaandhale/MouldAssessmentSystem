@@ -13,6 +13,7 @@ import { LeftPanelComponent } from "./components/left-panel/left-panel.component
 import { RecordComponent } from './components/home-page/record/record.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import {TableModule} from 'primeng/table';
 
 
 import {
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     MatIconModule,
     RouterModule.forRoot(appRoutes), 
     BrowserAnimationsModule,
-    HttpClientModule],
+    HttpClientModule,
+    TableModule],
   providers: [],
   bootstrap: [AppComponent],
 })
