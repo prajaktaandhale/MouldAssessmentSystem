@@ -1,15 +1,16 @@
-<p-table [columns]="cols" [value]="cars">
+<p-table [value]="data" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [columns]="cols"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
   <ng-template pTemplate="header" let-columns>
-      <tr>
-          <th *ngFor="let col of columns">
+      <tr style="background-color: white;">
+          <th class="head" *ngFor="let col of columns">
               {{col.header}}
           </th>
       </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-car let-columns="columns">
-      <tr>
+  <ng-template pTemplate="body" let-el let-columns="columns">
+      <tr style="background-color: white;">
           <td *ngFor="let col of columns">
-                  {{car[col.field]}}
+                  {{el[col.field]}}
           </td>
       </tr>
   </ng-template>

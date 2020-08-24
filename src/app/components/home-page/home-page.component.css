@@ -7,3 +7,11 @@
     height: 100vh;
     color: white;
 }
+
+.dashboard {
+    margin-bottom: 20px;
+}
+
+.router {
+    padding-top: 10px;
+}
