@@ -9,7 +9,7 @@
   </ng-template>
   <ng-template pTemplate="body" let-el let-columns="columns">
       <tr style="background-color: white;">
-          <td *ngFor="let col of columns">
+          <td *ngFor="let col of columns; let i = index" (click)="onClickRecord($event, el)">
                   {{el[col.field]}}
           </td>
       </tr>
