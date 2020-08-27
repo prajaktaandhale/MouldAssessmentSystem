@@ -12,8 +12,8 @@ import { Chart } from '../../../../../node_modules/chart.js';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  //myChart;
-  
+  myChart;
+  myPieChart;
   
 
   constructor(private polygonStatus: PolygonStatusService) { 
@@ -21,39 +21,53 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-  //   this.myChart = new Chart(myChart, {
-  //     type: 'bar',
-  //     data: {
-  //         labels: ['Red', 'Blue', 'Yellow'],
-  //         datasets: [{
-  //             label: '# of Votes',
-  //             data: [12, 19, 3, 5, 2, 3],
-  //             backgroundColor: [
-  //                 'rgba(255, 99, 132, 0.9)',
-  //                 'rgba(54, 162, 235, 0.9)',
-  //                 'rgba(255, 206, 86, 0.9)'
-  //             ],
-  //             borderColor: [
-  //                 'rgba(255, 99, 132, 0.9)',
-  //                 'rgba(54, 162, 235, 0.9)',
-  //                 'rgba(255, 206, 86, 0.9)'
-  //             ],
-  //             borderWidth: 0.5
-  //         }]
-  //     },
-  //     options: {
-  //         scales: {
-  //             yAxes: [{
-  //                 ticks: {
-  //                     beginAtZero: true
-  //                 }
-  //             }],
-  //             xAxes: [{
-  //               barPercentage: 0.2
-  //           }]
-  //         }
-  //     }
-  // });
+    this.myChart = new Chart(myChart, {
+      type: 'bar',
+      data: {
+          labels: ['Red', 'Blue', 'Yellow'],
+          datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.9)',
+                  'rgba(54, 162, 235, 0.9)',
+                  'rgba(255, 206, 86, 0.9)'
+              ],
+              borderColor: [
+                  'rgba(255, 99, 132, 0.9)',
+                  'rgba(54, 162, 235, 0.9)',
+                  'rgba(255, 206, 86, 0.9)'
+              ],
+              borderWidth: 0.5
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }],
+              xAxes: [{
+                barPercentage: 0.2
+            }]
+          }
+      }
+  });
+  var myPieChart = new Chart(myChart2, {
+    type: 'pie',
+    data: {
+      labels: ["Green", "Blue",  "Purple"],
+      datasets: [{
+        backgroundColor: [
+          "#2ecc71",
+          "#3498db",
+          "#9b59b6"
+        ],
+        data: [12, 19, 3]
+      }]
+    }
+  });
     
   
 

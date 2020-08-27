@@ -13,11 +13,11 @@
   font-size: 30px;
 }
 .icon-color {
-    color: gold;
+    color: grey;
     font-size: 50px;
 }
 .card-font-color {
-    color: black;
+    color: grey;
     font-size: 24px;
     font-weight: 400;
 }
@@ -45,4 +45,7 @@ a {
 
 .custom-card {
   background-color: rgb(64 99 118) !important;
+}
+.border-list-items {
+  border: none;
 }
