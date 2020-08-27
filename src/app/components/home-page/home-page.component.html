@@ -1,16 +1,14 @@
 <div class="clearfix">
     <app-header></app-header>
-    <div class="row col-12">
-        <div class="col-3">
+    <div class="row col-sm-12 col-md-12">
+        <div class="col-sm-3 col-md-3">
             <app-left-panel></app-left-panel>
         </div>
-        <div class="col-9"> 
-            <div class="row dashboard">
+        <div class="col-sm-9 col-md-9" style="margin-top: 1%;"> 
+            <div class="" style="margin-bottom: 3%;">
                 <app-dashboard></app-dashboard>
             </div>          
-            <div class="row router">
-                <router-outlet></router-outlet>
-            </div>
+            <app-record></app-record>
         </div>
     </div>
 </div>

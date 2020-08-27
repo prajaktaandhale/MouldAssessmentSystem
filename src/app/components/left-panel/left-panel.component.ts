@@ -6,17 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./left-panel.component.css']
 })
 export class LeftPanelComponent implements OnInit {
-  options : [{}];
-
+  
   constructor() { }
 
   ngOnInit() {
-    this.options = [
-      {
-        name : 'Notifications',
-        class : 'fa fa-bell fa-1x icon-color'
-
-    }]
+    
+    
   }
 
 }
