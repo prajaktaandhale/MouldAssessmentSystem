@@ -1,15 +1,13 @@
 <div class="clearfix">
     <app-header></app-header>
     <div class="row col-12">
-        <div class="col-sm-offset-2 col-9 dashboard">
-            <app-dashboard></app-dashboard>
-        </div>
-    </div>
-    <div class="row col-12">
         <div class="col-3">
             <app-left-panel></app-left-panel>
         </div>
-        <div class="col-9">            
+        <div class="col-9"> 
+            <div class="row dashboard">
+                <app-dashboard></app-dashboard>
+            </div>          
             <div class="row router">
                 <router-outlet></router-outlet>
             </div>

@@ -14,10 +14,12 @@
 }
 .icon-color {
     color: gold;
+    font-size: 50px;
 }
 .card-font-color {
-    color: white;
-    font-weight: 450;
+    color: black;
+    font-size: 24px;
+    font-weight: 400;
 }
 .box-part {
     background-color: rgb(50, 87, 168);
