@@ -24,22 +24,21 @@ export class DashboardComponent implements OnInit {
     this.myChart = new Chart(myChart, {
       type: 'bar',
       data: {
-          labels: ['Red', 'Blue', 'Yellow'],
+          labels: ['January', 'February', 'March'],
           datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.9)',
-                  'rgba(54, 162, 235, 0.9)',
-                  'rgba(255, 206, 86, 0.9)'
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 0.9)',
-                  'rgba(54, 162, 235, 0.9)',
-                  'rgba(255, 206, 86, 0.9)'
-              ],
-              borderWidth: 0.5
-          }]
+            label: "Healthy",
+            backgroundColor: "green",
+            data: [133,221,783,2478]
+          }, {
+            label: "Need Probe",
+            backgroundColor: "yellow",
+            data: [408,547,675,734]
+          }, {
+            label: "Disposable",
+            backgroundColor: "red",
+            data: [408,547,675,734]
+          }
+        ]
       },
       options: {
           scales: {
@@ -49,7 +48,8 @@ export class DashboardComponent implements OnInit {
                   }
               }],
               xAxes: [{
-                barPercentage: 0.2
+                barPercentage: 0.5,
+                categoryPercentage: 0.5
             }]
           }
       }
@@ -57,12 +57,12 @@ export class DashboardComponent implements OnInit {
   var myPieChart = new Chart(myChart2, {
     type: 'pie',
     data: {
-      labels: ["Green", "Blue",  "Purple"],
+      labels: ["Healthy", "Need Probe",  "Disposable"],
       datasets: [{
         backgroundColor: [
-          "#2ecc71",
-          "#3498db",
-          "#9b59b6"
+          "#28a745",
+          "#007bff",
+          "#dc3545"
         ],
         data: [12, 19, 3]
       }]

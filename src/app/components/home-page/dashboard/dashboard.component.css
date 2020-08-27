@@ -30,3 +30,6 @@ font-size: 20px;
 .col-space {
   margin:10px; padding:10px; 
 }
+.th-header-font-family {
+  font-family: "Poppins", sans-serif;
+}
