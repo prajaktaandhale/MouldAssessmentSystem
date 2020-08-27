@@ -14,6 +14,11 @@ import { RecordComponent } from './components/home-page/record/record.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import {TableModule} from 'primeng/table';
+import { ChartModule } from 'primeng/chart';
+import {MenuModule} from 'primeng/menu';
+import {MenubarModule} from 'primeng/menubar';
+import {CardModule} from 'primeng/card';
+import { ChartsModule } from 'ng2-charts';
 
 
 import {
@@ -63,7 +68,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes), 
     BrowserAnimationsModule,
     HttpClientModule,
-    TableModule],
+    TableModule,
+    ChartModule,
+    MenuModule,
+    MenubarModule,
+    CardModule,
+    ChartsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

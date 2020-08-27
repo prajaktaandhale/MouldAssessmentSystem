@@ -70,7 +70,7 @@ export class RecordComponent implements OnInit {
   }
 
   onClickRecord(event, el) {
-    this.http.get("http://localhost:8080/" + el.id).subscribe(
+    this.http.get("http://localhost:8080/downloadFile/" + el.id).subscribe(
       resData => {
         console.log("request sent");
       }

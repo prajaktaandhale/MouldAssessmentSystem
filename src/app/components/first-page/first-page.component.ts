@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./first-page.component.css']
 })
 export class FirstPageComponent implements OnInit {
-  isLoggedIn = true;
-  isLoading = false;
+  isLoggedIn = false;
   error: string = null;
   message = null;
 
@@ -22,6 +21,9 @@ export class FirstPageComponent implements OnInit {
   }
 
   onSwitchMode() {
+    this.isLoggedIn = !this.isLoggedIn;
+  }
+  changeValue() {
     this.isLoggedIn = !this.isLoggedIn;
   }
 
@@ -36,7 +38,7 @@ export class FirstPageComponent implements OnInit {
 
     let authObs: Observable<AuthResponseData>;
     
-    this.isLoading = true;
+    
 
     if(this.isLoggedIn) {
       authObs =this.authService.login(email, password);
@@ -46,15 +48,14 @@ export class FirstPageComponent implements OnInit {
     authObs.subscribe(
       resData => {
         console.log(resData);
-        this.isLoading = false;
         if(this.isLoggedIn) {
           this.message = "logged in successfully";
+          this.isLoggedIn = !this.isLoggedIn;
           this.router.navigate(['/homePage']);
         }
       }, errorMessage => {
         console.log(errorMessage);
         this.error = errorMessage;
-        this.isLoading = false;
       }
     );
     form.reset();
