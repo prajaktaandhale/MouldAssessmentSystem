@@ -1,5 +1,5 @@
-<p-table [value]="data" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [columns]="cols"
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+<p-table [value]="data" [paginator]="true" [rows]="4" [showCurrentPageReport]="true" [columns]="cols"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,15,25]">
   <ng-template pTemplate="header" let-columns>
       <tr style="background-color: white;">
           <th class="head" style="background-color: black !important; color: white !important" *ngFor="let col of columns">

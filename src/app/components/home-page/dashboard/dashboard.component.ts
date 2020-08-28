@@ -14,10 +14,11 @@ import { Chart } from '../../../../../node_modules/chart.js';
 export class DashboardComponent implements OnInit {
   myChart;
   myPieChart;
+  values;
   
 
   constructor(private polygonStatus: PolygonStatusService) { 
-
+      var values = polygonStatus.getValues();
   }
 
   ngOnInit() {
@@ -28,15 +29,15 @@ export class DashboardComponent implements OnInit {
           datasets: [{
             label: "Healthy",
             backgroundColor: "green",
-            data: [133,221,783,2478]
+            data: [13,22,32,24]
           }, {
             label: "Need Probe",
             backgroundColor: "yellow",
-            data: [408,547,675,734]
+            data: [4,25,26,34]
           }, {
             label: "Disposable",
             backgroundColor: "red",
-            data: [408,547,675,734]
+            data: [41,17,15,34]
           }
         ]
       },
