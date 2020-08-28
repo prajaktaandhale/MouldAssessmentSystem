@@ -15,10 +15,16 @@ export class DashboardComponent implements OnInit {
   myChart;
   myPieChart;
   values;
+  healthy;
+  needProbe;
+  disposable;
   
 
   constructor(private polygonStatus: PolygonStatusService) { 
       var values = polygonStatus.getValues();
+      this.healthy = values.healthy;
+      this.needProbe = values.needProbe;
+      this.disposable = values.disposable;
   }
 
   ngOnInit() {

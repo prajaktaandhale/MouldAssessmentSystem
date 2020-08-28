@@ -15,6 +15,7 @@ export class RecordComponent implements OnInit {
   data: Polygon[] = [];
   healthyCount: number = 0;
   disposable : number =0;
+  needProbe : number =0;
 
   constructor(private http: HttpClient,private polygonStatus: PolygonStatusService ) { }
   cars: any[];
@@ -36,14 +37,17 @@ export class RecordComponent implements OnInit {
      //this.data = Data;
      if(this.data != undefined) {
      for (let i=0; i<this.data.length; i++) {
-         if(this.data[i].polygonStatus === "healthy") {
+         if(this.data[i].polygonStatus === "Healthy") {
            this.healthyCount = this.healthyCount+1;
          }
-         if(this.data[i].polygonStatus === "disposable") {
+         if(this.data[i].polygonStatus === "Disposable") {
            this.disposable = this.disposable+1;
          }
+         if(this.data[i].polygonStatus === "Needs to probe") {
+          this.needProbe = this.needProbe+1;
+        }
        }
-       this.polygonStatus.setValues(this.healthyCount, this.disposable);
+       this.polygonStatus.setValues(this.healthyCount, this.disposable, this.needProbe);
      }
   }
 
