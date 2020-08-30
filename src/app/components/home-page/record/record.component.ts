@@ -27,13 +27,13 @@ export class RecordComponent implements OnInit {
        this.data = response;
      });
     this.cols = [
-      { field: 'id', header: 'ID' },
-      { field: 'name', header: 'Name' },
-      { field: 'category', header: 'Category' },
-      { field: 'batchNumber', header: 'Batch Number' },
-      { field: 'make', header: 'Make' },
-      { field: 'cycles', header: 'Cycles' }
-    ];
+    { field: 'id', header: 'ID' },
+    { field: 'name', header: 'Name' },
+    { field: 'polygonStatus', header: 'Status' },
+    { field: 'batchNumber', header: 'Assembly Number' },
+    { field: 'make', header: 'Manufacturer' },
+    { field: 'cycles', header: 'Cycles' }
+  ];
      //this.data = Data;
      if(this.data != undefined) {
      for (let i=0; i<this.data.length; i++) {

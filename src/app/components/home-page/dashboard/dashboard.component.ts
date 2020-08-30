@@ -28,55 +28,63 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.myChart = new Chart(myChart, {
-      type: 'bar',
-      data: {
+  this.myChart = new Chart(myChart, {
+  type:'bar',
+ showInLegend: true,
+    data: {
           labels: ['January', 'February', 'March'],
           datasets: [{
-            label: "Healthy",
-            backgroundColor: "green",
-            data: [13,22,32,24]
-          }, {
-            label: "Need Probe",
-            backgroundColor: "yellow",
-            data: [4,25,26,34]
-          }, {
-            label: "Disposable",
-            backgroundColor: "red",
-            data: [41,17,15,34]
-          }
-        ]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
+                     label: "Healthy",
+             backgroundColor: "green",
+             data: [13,22,32,24]
+           }, {
+             label: "Need Probe",
+             backgroundColor: "yellow",
+             data: [4,25,26,34]
+           }, {
+             label: "Disposable",
+             backgroundColor: "red",
+             data: [41,17,15,34]
+           }
+         ]
+       },
+       options: {
+        scales: {
+               yAxes: [{
+                   ticks: {
+                       beginAtZero: true,
+                      stepSize: 20
                   }
-              }],
-              xAxes: [{
+               }],
+               xAxes: [{
                 barPercentage: 0.5,
-                categoryPercentage: 0.5
-            }]
-          }
-      }
-  });
-  var myPieChart = new Chart(myChart2, {
-    type: 'pie',
-    data: {
-      labels: ["Healthy", "Need Probe",  "Disposable"],
-      datasets: [{
-        backgroundColor: [
-          "#28a745",
-          "#007bff",
-          "#dc3545"
-        ],
-        data: [12, 19, 3]
-      }]
+                 categoryPercentage: 0.5
+             }],
+            title: {
+                 display: true,
+                 text: 'Historical Data',
+                 fontSize: 16
+             },
+             legend: {
+                 position: 'bottom'
+             }
+           }
+       }
+   });
+   var myPieChart = new Chart(myChart2, {
+     type: 'pie',
+     data: {
+       labels: ["Healthy", "Need Probe",  "Disposable"],
+       datasets: [{
+         backgroundColor: [
+           "#28a745",
+           "#007bff",
+           "#dc3545"
+         ],
+         data: [12, 19, 3]
+       }]
     }
-  });
-    
-  
+  });     
 
 }
 }
