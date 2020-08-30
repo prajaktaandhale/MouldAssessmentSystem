@@ -48,7 +48,7 @@ export class FirstPageComponent implements OnInit {
     authObs.subscribe(
       resData => {
         console.log(resData);
-        if(this.isLoggedIn) {
+        if(!this.isLoggedIn) {
           this.message = "logged in successfully";
           this.isLoggedIn = !this.isLoggedIn;
           this.router.navigate(['/homePage']);
