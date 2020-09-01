@@ -293,9 +293,10 @@ font-size: 15px;
   box-shadow: 3px 2px 3px #4272d7;
 }
 .forecast-styles {
-  font-size: 20px;
-  color: blue;
-  font-weight: 300;
+  font-size: 25px;
+  color: #4272d7;
+  font-weight: bold;
+  padding-right: 13%;
 }
 .canvas-border {
   border: 2px solid black;
