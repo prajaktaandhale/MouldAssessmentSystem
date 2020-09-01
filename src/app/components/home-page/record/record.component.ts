@@ -4,6 +4,8 @@ import Data from './data.js';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PolygonStatusService } from 'src/app/services/polygon-status.service';
 import { ɵAnimationGroupPlayer } from '@angular/animations';
+import { FetchDataService } from 'src/app/services/fetch-data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-record',
@@ -15,13 +17,15 @@ export class RecordComponent implements OnInit {
   data: Polygon[] = [];
   healthyCount: number = 0;
   disposable : number =0;
-  needProbe : number =0;
+  // needProbe : number =0;
+  // tableData : Observable<Polygon>;
 
-  constructor(private http: HttpClient,private polygonStatus: PolygonStatusService ) { }
-  cars: any[];
+  constructor(private http: HttpClient,private polygonStatus: PolygonStatusService, private fetchData: FetchDataService ) { }
   cols: any[];
+  
 
   ngOnInit() {
+    //this.tableData =  this.fetchData.getMouldData();
      this.http.get<Polygon[]>("http://localhost:8080/getPolygonData")
      .subscribe(response => {
        this.data = response;
