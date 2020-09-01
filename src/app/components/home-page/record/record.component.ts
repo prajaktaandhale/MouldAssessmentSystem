@@ -27,23 +27,23 @@ export class RecordComponent implements OnInit {
        this.data = response;
      });
     this.cols = [
-    { field: 'id', header: 'ID' },
-    { field: 'name', header: 'Name' },
-    { field: 'polygonStatus', header: 'Status' },
-    { field: 'batchNumber', header: 'Assembly Number' },
-    { field: 'make', header: 'Manufacturer' },
-    { field: 'cycles', header: 'Cycles' }
-  ];
+      { field: 'id', header: 'ID' },
+      { field: 'name', header: 'Name' },
+      { field: 'polygon_status', header: 'Status' },
+      { field: 'batchNumber', header: 'Batch Number' },
+      { field: 'make', header: 'Make' },
+      { field: 'cycles', header: 'Cycles' }
+    ];
      //this.data = Data;
      if(this.data != undefined) {
      for (let i=0; i<this.data.length; i++) {
-         if(this.data[i].polygonStatus === "Healthy") {
+         if(this.data[i].polygon_status === "Healthy") {
            this.healthyCount = this.healthyCount+1;
          }
-         if(this.data[i].polygonStatus === "Disposable") {
+         if(this.data[i].polygon_status === "Disposable") {
            this.disposable = this.disposable+1;
          }
-         if(this.data[i].polygonStatus === "Needs to probe") {
+         if(this.data[i].polygon_status === "Needs to probe") {
           this.needProbe = this.needProbe+1;
         }
        }

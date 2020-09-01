@@ -36,7 +36,8 @@ const appRoutes: Routes = [
   { path: "", component: FirstPageComponent },
   { path: "firstPage", component: FirstPageComponent },
   { path: "homePage", component: HomePageComponent, children: [
-    {path: '', component: RecordComponent}
+    {path: '', component: DashboardComponent},
+    {path: 'todayStatus', component: RecordComponent}
   ] },
 ];
 
