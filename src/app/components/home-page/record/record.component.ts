@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class RecordComponent implements OnInit {
   polygon: Polygon;
-  data;
+  data;response;
   // tableData : Observable<Polygon>;
 
   constructor(private http: HttpClient,private polygonStatus: PolygonStatusService, private fetchData: FetchDataService ) { }
@@ -23,7 +23,8 @@ export class RecordComponent implements OnInit {
 
   ngOnInit() {
     //this.tableData =  this.fetchData.getMouldData();
-    this.data = this.polygonStatus.getData();
+    this.response = this.polygonStatus.getData();
+    this.data = this.response.forecastedPolygonlist;
      this.cols = [
       { field: 'sku', header: 'Mould ID' },
       { field: 'category', header: 'Category' },

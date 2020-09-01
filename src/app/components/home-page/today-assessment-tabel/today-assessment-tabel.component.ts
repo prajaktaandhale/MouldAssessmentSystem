@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { Polygon } from '../polygon.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -13,17 +12,15 @@ import { ɵAnimationGroupPlayer } from '@angular/animations';
 export class TodayAssessmentTabelComponent implements OnInit {
   polygon: Polygon;
   data: any[];
-  healthyCount: number = 0;
-  disposable : number =0;
-  needProbe : number =0;
+  response;
 
   constructor(private http: HttpClient,private polygonStatus: PolygonStatusService ) { }
   cars: any[];
   cols: any[];
 
   ngOnInit() {
-    this.data = this.polygonStatus.getData();
-     
+    this.response = this.polygonStatus.getData();
+    this.data = this.response.assessedPolygonlist;
     this.cols = [
       { field: 'sku', header: 'Mould ID' },
       { field: 'category', header: 'Category' },
