@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -13,6 +13,7 @@ import { LeftPanelComponent } from "./components/left-panel/left-panel.component
 import { RecordComponent } from './components/home-page/record/record.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {TableModule} from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 import {MenuModule} from 'primeng/menu';
@@ -29,6 +30,7 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatIconModule,
+  MatNativeDateModule,
 } from '@angular/material';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { TodayAssessmentTabelComponent } from './components/home-page/today-assessment-tabel/today-assessment-tabel.component';
@@ -62,6 +64,7 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatCardModule,
     MatTabsModule,
@@ -77,7 +80,10 @@ const appRoutes: Routes = [
     MenuModule,
     MenubarModule,
     CardModule,
-    ChartsModule],
+    ChartsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

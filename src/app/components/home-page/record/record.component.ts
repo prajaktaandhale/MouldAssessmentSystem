@@ -16,8 +16,8 @@ export class RecordComponent implements OnInit {
   polygon: Polygon;
   data: Polygon[] = [];
   healthyCount: number = 0;
-  disposable : number =0;
-  // needProbe : number =0;
+  disposable : number = 0;
+  needProbe : number = 0;
   // tableData : Observable<Polygon>;
 
   constructor(private http: HttpClient,private polygonStatus: PolygonStatusService, private fetchData: FetchDataService ) { }
