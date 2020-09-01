@@ -292,3 +292,15 @@ font-size: 15px;
 .table-shadow {
   box-shadow: 3px 2px 3px #4272d7;
 }
+.forecast-styles {
+  font-size: 20px;
+  color: blue;
+  font-weight: 300;
+}
+.canvas-border {
+  border: 2px solid black;
+  box-shadow: 3px 4px 3px 0px burlywood;
+  background-color: white;
+  border-radius: 19px !important;
+  padding-left: 20px !important;
+}

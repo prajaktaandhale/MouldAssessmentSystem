@@ -31,13 +31,15 @@ import {
   MatIconModule,
 } from '@angular/material';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { TodayAssessmentTabelComponent } from './components/home-page/today-assessment-tabel/today-assessment-tabel.component';
 
 const appRoutes: Routes = [
   { path: "", component: FirstPageComponent },
   { path: "firstPage", component: FirstPageComponent },
   { path: "homePage", component: HomePageComponent, children: [
     {path: '', component: DashboardComponent},
-    {path: 'todayStatus', component: RecordComponent}
+    {path: 'todayStatus', component: TodayAssessmentTabelComponent},
+    {path: 'records', component: RecordComponent}
   ] },
 ];
 
@@ -50,7 +52,8 @@ const appRoutes: Routes = [
     LeftPanelComponent,
     RecordComponent,
     DashboardComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    TodayAssessmentTabelComponent
   ],
   imports: [
     BrowserModule, 
