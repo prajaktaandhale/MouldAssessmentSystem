@@ -3,7 +3,9 @@ import { PolygonStatusService } from 'src/app/services/polygon-status.service';
 import { Chart } from '../../../../../node_modules/chart.js';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import _ from 'lodash';
+import { FetchDataService } from 'src/app/services/fetch-data.service.js';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,18 +19,14 @@ export class DashboardComponent implements OnInit {
   @ViewChild('interpolation', null) interpolation;
   public data: any;
   date = new FormControl(new Date());
-  values;
-  healthy;
-  needProbe;
-  disposable;
   horizontalBarSelectedDate = new Date();
 
-
-  constructor(private polygonStatus: PolygonStatusService, private router: Router) {
-    var values = polygonStatus.getValues();
-    this.healthy = values.healthy;
-    this.needProbe = values.needProbe;
-    this.disposable = values.disposable;
+  constructor(private polygonStatus: PolygonStatusService, private router: Router, private http:HttpClient, private fetchData: FetchDataService) {
+    this.http.get<any>("http://localhost:8080/getPolygonData")
+     .subscribe(response => {
+       this.data = response;
+     });
+     this.polygonStatus.setData(this.data);
   }
 
   ngOnInit() {

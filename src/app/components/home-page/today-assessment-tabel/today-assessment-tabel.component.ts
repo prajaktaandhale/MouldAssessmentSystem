@@ -12,7 +12,7 @@ import { ɵAnimationGroupPlayer } from '@angular/animations';
 })
 export class TodayAssessmentTabelComponent implements OnInit {
   polygon: Polygon;
-  data: Polygon[] = [];
+  data: any[];
   healthyCount: number = 0;
   disposable : number =0;
   needProbe : number =0;
@@ -22,33 +22,18 @@ export class TodayAssessmentTabelComponent implements OnInit {
   cols: any[];
 
   ngOnInit() {
-     this.http.get<Polygon[]>("http://localhost:8080/getPolygonData")
-     .subscribe(response => {
-       this.data = response;
-     });
+    this.data = this.polygonStatus.getData();
+     
     this.cols = [
-      { field: 'id', header: 'ID' },
-      { field: 'name', header: 'Name' },
-      { field: 'polygon_status', header: 'Status' },
-      { field: 'batchNumber', header: 'Batch Number' },
-      { field: 'make', header: 'Make' },
-      { field: 'cycles', header: 'Cycles' }
+      { field: 'sku', header: 'Mould ID' },
+      { field: 'category', header: 'Category' },
+      { field: 'manufacturor', header: 'Manufacturer' },
+      { field: 'polygonStatus', header: 'Status' },
+      { field: 'assessmentDate', header: 'Assessment Date' },
+      { field: 'dicommisionDate', header: 'Termination Date' },
     ];
      //this.data = Data;
-     if(this.data != undefined) {
-     for (let i=0; i<this.data.length; i++) {
-         if(this.data[i].polygon_status === "Healthy") {
-           this.healthyCount = this.healthyCount+1;
-         }
-         if(this.data[i].polygon_status === "Disposable") {
-           this.disposable = this.disposable+1;
-         }
-         if(this.data[i].polygon_status === "Needs to probe") {
-          this.needProbe = this.needProbe+1;
-        }
-       }
-       this.polygonStatus.setValues(this.healthyCount, this.disposable, this.needProbe);
-     }
+     
   }
 
   onClickRecord(event, el) {

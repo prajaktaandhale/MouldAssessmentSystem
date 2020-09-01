@@ -6,12 +6,14 @@ import { Polygon } from '../components/home-page/polygon.model';
   providedIn: 'root'
 })
 export class FetchDataService {
+  data;
 
   constructor(private http:HttpClient) { 
   }
 
-  getMouldData() {
-    this.http.get<Polygon[]>("http://localhost:8080/getPolygonData");
-  }
+  
+  // getMouldData() {
+  //   this.http.get<Polygon[]>("http://localhost:8080/getPolygonData");
+  // }
 
 }

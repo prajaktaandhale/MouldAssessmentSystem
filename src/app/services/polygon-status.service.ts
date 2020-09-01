@@ -4,23 +4,28 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PolygonStatusService {
-  healthy;
-  disposable;
-  needProbe;
+  data;
 
   constructor() { }
 
-  setValues(healthy, disposable, needProbe) {
-    this.healthy = healthy;
-    this.disposable = disposable;
-    this.needProbe = needProbe;
+  setData(response) {
+    this.data = response;
+  }
+  getData() {
+    return this.data;
   }
 
-  getValues() {
-    return {
-      healthy: this.healthy,
-      disposable: this.disposable,
-      needProbe: this.needProbe
-    }
-  }
+  // setValues(healthy, disposable, needProbe) {
+  //   this.healthy = healthy;
+  //   this.disposable = disposable;
+  //   this.needProbe = needProbe;
+  // }
+
+  // getValues() {
+  //   return {
+  //     healthy: this.healthy,
+  //     disposable: this.disposable,
+  //     needProbe: this.needProbe
+  //   }
+  // }
 }
