@@ -21,20 +21,16 @@ export class DashboardComponent implements OnInit {
   date = new FormControl(new Date());
   horizontalBarSelectedDate = new Date();
 
-  constructor(private polygonStatus: PolygonStatusService, private router: Router, private http:HttpClient, private fetchData: FetchDataService) {
-    this.http.get<any>("http://localhost:8080/getPolygonData")
-     .subscribe(response => {
-       this.data = response;
-     });
-     this.polygonStatus.setData(this.data);
-  }
+  constructor(
+    private router: Router, 
+    private fetchData: FetchDataService
+  ) {}
 
   ngOnInit() {
-    
     const lineChart = this.lineChart.nativeElement;
     const pieChart = this.pieChart.nativeElement;
     const interpolation = this.interpolation.nativeElement;
-    this.data = this.getData();
+    this.data = this.fetchData.getMouldData();
     this.handleHorizontalBar();
     this.pieChart = new Chart(pieChart, {
       type: 'pie',
