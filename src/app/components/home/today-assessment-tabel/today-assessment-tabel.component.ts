@@ -3,6 +3,7 @@ import { Polygon } from '../polygon.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PolygonStatusService } from 'src/app/services/polygon-status.service';
 import { ɵAnimationGroupPlayer } from '@angular/animations';
+import { FetchDataService } from 'src/app/services/fetch-data.service';
 
 @Component({
   selector: 'app-today-assessment-tabel',
@@ -14,12 +15,12 @@ export class TodayAssessmentTabelComponent implements OnInit {
   data: any[];
   response;
 
-  constructor(private http: HttpClient,private polygonStatus: PolygonStatusService ) { }
+  constructor(private http: HttpClient,private polygonStatus: PolygonStatusService, private fetchData : FetchDataService ) { }
   cars: any[];
   cols: any[];
 
   ngOnInit() {
-    this.response = this.polygonStatus.getData();
+    this.response = this.fetchData.getData();
     this.data = this.response.assessedPolygonlist;
     this.cols = [
       { field: 'sku', header: 'Mould ID' },

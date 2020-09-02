@@ -23,7 +23,7 @@ export class RecordComponent implements OnInit {
 
   ngOnInit() {
     //this.tableData =  this.fetchData.getMouldData();
-    this.response = this.polygonStatus.getData();
+    this.response = this.fetchData.getData();
     this.data = this.response.forecastedPolygonlist;
      this.cols = [
       { field: 'sku', header: 'Mould ID' },

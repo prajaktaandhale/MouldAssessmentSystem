@@ -22,19 +22,22 @@ export class DashboardComponent implements OnInit {
   horizontalBarSelectedDate = new Date();
 
   constructor(private polygonStatus: PolygonStatusService, private router: Router, private http:HttpClient, private fetchData: FetchDataService) {
-    this.http.get<any>("http://localhost:8080/getPolygonData")
-     .subscribe(response => {
-       this.data = response;
-     });
-     this.polygonStatus.setData(this.data);
+    
   }
 
   ngOnInit() {
-    
+    this.fetchData.getMouldData().
+    subscribe( (response) => {
+      this.data = response;
+      this.fetchData.setData(this.data);
+      this.initialise();
+    });
+  }
+  initialise() {
     const lineChart = this.lineChart.nativeElement;
     const pieChart = this.pieChart.nativeElement;
     const interpolation = this.interpolation.nativeElement;
-    this.data = this.getData();
+    //this.data = this.getData();
     this.handleHorizontalBar();
     this.pieChart = new Chart(pieChart, {
       type: 'pie',
@@ -130,9 +133,9 @@ export class DashboardComponent implements OnInit {
         },
         legend: { display: true,
           position: 'bottom' }
-      }
-    });
-
+      } 
+     });
+    
   }
   showMouldToAssess() {
     this.router.navigate(['/home/records']);

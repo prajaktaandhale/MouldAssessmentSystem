@@ -45,9 +45,9 @@ export class LoginServiceService {
       );
   }
 
-  fetchData() {
-    return this.http.get("http://localhost:8080/getPolygonData");
-  }
+  // fetchData() {
+  //   return this.http.get("http://localhost:8080/getPolygonData");
+  // }
 
   private handleError(errorRes : HttpErrorResponse) {
     
