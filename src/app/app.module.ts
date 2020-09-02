@@ -43,7 +43,7 @@ const appRoutes: Routes = [
   {
     path: "home", component: HomeComponent, children: [
       { path: '', component: DashboardComponent, resolve: { data: HomeService } },
-      { path: 'todayStatus', component: TodayAssessmentTabelComponent },
+      { path: 'todayStatus', component: TodayAssessmentTabelComponent, resolve: { data: HomeService } },
       { path: 'records', component: RecordComponent, resolve: { data: HomeService } }
     ]
   },

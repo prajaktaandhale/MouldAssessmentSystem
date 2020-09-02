@@ -4,6 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { PolygonStatusService } from 'src/app/services/polygon-status.service';
 import { ɵAnimationGroupPlayer } from '@angular/animations';
 import { FetchDataService } from 'src/app/services/fetch-data.service';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-today-assessment-tabel',
@@ -15,13 +16,16 @@ export class TodayAssessmentTabelComponent implements OnInit {
   data: any[];
   response;
 
-  constructor(private http: HttpClient,private polygonStatus: PolygonStatusService, private fetchData : FetchDataService ) { }
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute) { }
   cars: any[];
   cols: any[];
 
   ngOnInit() {
-    this.response = this.fetchData.getData();
-    this.data = this.response.assessedPolygonlist;
+    this.route.data.subscribe((data: Data) => {
+      this.data = data.data.assessedPolygonlist;
+    });
     this.cols = [
       { field: 'sku', header: 'Sku' },
       { field: 'mouldId', header: 'Mould' },
@@ -31,9 +35,7 @@ export class TodayAssessmentTabelComponent implements OnInit {
       { field: 'cyclesUsed', header: 'Cycles Used' },
       { field: 'assessDate', header: 'Assessment Date' },
       { field: 'polygonStatus', header: 'Status' },
-    ];
-     //this.data = Data;
-     
+    ];     
   }
 
   onClickRecord(event, el) {
