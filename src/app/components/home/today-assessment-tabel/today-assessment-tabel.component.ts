@@ -23,12 +23,14 @@ export class TodayAssessmentTabelComponent implements OnInit {
     this.response = this.fetchData.getData();
     this.data = this.response.assessedPolygonlist;
     this.cols = [
-      { field: 'sku', header: 'Mould ID' },
+      { field: 'sku', header: 'Sku' },
+      { field: 'mouldId', header: 'Mould' },
       { field: 'category', header: 'Category' },
-      { field: 'manufacturor', header: 'Manufacturer' },
+      { field: 'make', header: 'Make' },
+      { field: 'location', header: 'Assembly Line Number' },
+      { field: 'cyclesUsed', header: 'Cycles Used' },
+      { field: 'assessDate', header: 'Assessment Date' },
       { field: 'polygonStatus', header: 'Status' },
-      { field: 'assessmentDate', header: 'Assessment Date' },
-      { field: 'dicommisionDate', header: 'Termination Date' },
     ];
      //this.data = Data;
      

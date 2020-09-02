@@ -7,3 +7,9 @@
     background: #f8f9fa !important;
     transition: box-shadow 0.2s;
 }
+.text-color {
+    color:  #4272d7;
+    font-size: 18px;
+    padding-right: 73.5px;
+    margin-left:10px;
+}

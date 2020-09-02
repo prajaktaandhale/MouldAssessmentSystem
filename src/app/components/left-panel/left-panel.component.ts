@@ -38,11 +38,8 @@ export class LeftPanelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-
   routeToPage(type) {
     this.types.forEach(type => type.active = false);
     this.types.find(t => t === type).active = true;
   }
-
-
 }

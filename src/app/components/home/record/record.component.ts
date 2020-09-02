@@ -28,11 +28,14 @@ export class RecordComponent implements OnInit {
       console.log('record', this.data);
     }
     this.cols = [
-      { field: 'sku', header: 'Mould ID' },
+      { field: 'sku', header: 'Sku' },
+      { field: 'mouldId', header: 'Mould' },
       { field: 'category', header: 'Category' },
-      { field: 'manufacturor', header: 'Manufacturer' },
+      { field: 'manufacturor', header: 'Make' },
+      { field: 'assemblyLineNumber', header: 'Assembly Line Number' },
+      { field: 'cycles', header: 'Cycles Used' },
       { field: 'assessmentDate', header: 'Assessment Date' },
-      { field: 'dicommisionDate', header: 'Termination Date' },
+      { field: 'polygonStatus', header: 'Status' },
     ];
   }
 
