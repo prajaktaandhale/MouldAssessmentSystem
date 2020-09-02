@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Polygon } from '../polygon.model';
-import Data from './data.js';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { PolygonStatusService } from 'src/app/services/polygon-status.service';
-import { ɵAnimationGroupPlayer } from '@angular/animations';
 import { FetchDataService } from 'src/app/services/fetch-data.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-record',
@@ -14,26 +11,29 @@ import { Observable } from 'rxjs';
 })
 export class RecordComponent implements OnInit {
   polygon: Polygon;
-  data;response;
-  // tableData : Observable<Polygon>;
+  data;
 
-  constructor(private http: HttpClient,private polygonStatus: PolygonStatusService, private fetchData: FetchDataService ) { }
+  constructor(private http: HttpClient,
+    private polygonStatus: PolygonStatusService,
+    private fetchData: FetchDataService
+  ) { }
   cols: any[];
   
 
   ngOnInit() {
-    //this.tableData =  this.fetchData.getMouldData();
-    this.response = this.fetchData.getData();
-    this.data = this.response.forecastedPolygonlist;
-     this.cols = [
+    const response = this.fetchData.getData();
+    console.log()
+    if (response) {
+      this.data = response.forecastedPolygonlist;
+      console.log('record', this.data);
+    }
+    this.cols = [
       { field: 'sku', header: 'Mould ID' },
       { field: 'category', header: 'Category' },
       { field: 'manufacturor', header: 'Manufacturer' },
       { field: 'assessmentDate', header: 'Assessment Date' },
       { field: 'dicommisionDate', header: 'Termination Date' },
     ];
-     //this.data = Data;
-     
   }
 
   onClickRecord(event, el) {

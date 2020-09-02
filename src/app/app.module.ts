@@ -35,12 +35,13 @@ import {
 } from '@angular/material';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { TodayAssessmentTabelComponent } from './components/home/today-assessment-tabel/today-assessment-tabel.component';
+import { HomeService } from './services/home.service';
 
 const appRoutes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", component: LoginComponent },
   {
-    path: "home", component: HomeComponent, children: [
+    path: "home", component: HomeComponent, resolve: {data: HomeService}, children: [
       { path: '', component: DashboardComponent },
       { path: 'todayStatus', component: TodayAssessmentTabelComponent },
       { path: 'records', component: RecordComponent }
