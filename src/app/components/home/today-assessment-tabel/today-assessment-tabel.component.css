@@ -1,0 +1,17 @@
+.healthy-color {
+    color: green;
+    font-size: 3.5rem;
+}
+.probe-color {
+    color: orange;
+    font-size: 3.5rem;
+}
+.disposable-color {
+    color:red;
+    font-size: 3.5rem;
+}
+.text-color {
+    color:  #4272d7;
+    font-size: 20px;
+    padding-right: 73.5px;
+}
