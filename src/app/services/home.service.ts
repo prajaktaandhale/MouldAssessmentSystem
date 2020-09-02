@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Resolve, Data, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Resolve} from '@angular/router';
+
+import { FetchDataService } from './fetch-data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService implements Resolve<any> {
 
-  constructor(private http: HttpClient) { }
+  constructor(private fetchService: FetchDataService) { }
 
   resolve(): any {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts').pipe(map((data: Data) => data));
+    return this.fetchService.getMouldData();
   };
 
 }
