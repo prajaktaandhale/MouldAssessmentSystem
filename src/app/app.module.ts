@@ -31,6 +31,7 @@ import {
   MatCheckboxModule,
   MatIconModule,
   MatNativeDateModule,
+  MatMenuModule,
 } from '@angular/material';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { TodayAssessmentTabelComponent } from './components/home/today-assessment-tabel/today-assessment-tabel.component';
@@ -84,7 +85,9 @@ const appRoutes: Routes = [
     CardModule,
     ChartsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatMenuModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

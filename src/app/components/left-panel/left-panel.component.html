@@ -1,24 +1,9 @@
- 
-<div class="flex-container">
-    <div class="">
-        <div class="card" style="border:none;">
-            <ul class="list-group list-group-flush" style="border-right:1px solid blue;border-bottom: 1px solid blue;">
-              <li class="list-group-item border-list-items" style="text-align: left;padding-left: 5%;">
-              <div><i class="fa fa-tachometer fa-10x icon-color" style="color:#4272d7" aria-hidden="true"></i>&nbsp;&nbsp;<span class="card-font-color" style="color: #4272d7">Dashboard</span></div>
-              </li>
-              <li class="list-group-item border-list-items" style="text-align: left;padding-left: 5%;">
-              <span><i class="fa fa-bar-chart fa-10x icon-color" aria-hidden="true"></i>&nbsp;&nbsp;<span class="card-font-color">Report</span></span>
-              </li>
-              <li class="list-group-item border-list-items" style="text-align: left;padding-left: 5%;">
-              <span><i class="fa fa-exclamation-triangle fa-10x icon-color" aria-hidden="true"></i>&nbsp;&nbsp;<span class="card-font-color">Alerts</span></span>
-              </li>
-              <li class="list-group-item border-list-items" style="text-align: left;padding-left: 5%;">
-              <span><i class="fa fa-comments fa-10x icon-color" aria-hidden="true"></i>&nbsp;&nbsp;<span class="card-font-color">FAQ's</span></span>
-              </li>
-              <li class="list-group-item border-list-items" style="text-align: left;padding-left: 5%;padding-top:45%">
-              <span><mat-icon style="font-size: xx-large;"></mat-icon></span>&nbsp;&nbsp;<span class="card-font-color">ASK IRA</span>
-              </li>
-            </ul>
-          </div>
-    </div>
-</div>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion side-nav__custom" id="accordionSidebar">
+  <li class="nav-item" *ngFor="let type of types" (click)="routeToPage(type)">
+        <a class="nav-link"  [ngClass]="{'active': type.active}">
+            <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon">{{ type.icon }}</mat-icon></span>
+            <span class="name">{{ type.name }}</span>
+        </a>
+        <hr class="sidebar-divider">
+    </li>
+</ul>

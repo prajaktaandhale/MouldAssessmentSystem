@@ -22,22 +22,19 @@ export class DashboardComponent implements OnInit {
   horizontalBarSelectedDate = new Date();
 
   constructor(private polygonStatus: PolygonStatusService, private router: Router, private http:HttpClient, private fetchData: FetchDataService) {
-    
+    this.http.get<any>("http://localhost:8080/getPolygonData")
+     .subscribe(response => {
+       this.data = response;
+     });
+     this.polygonStatus.setData(this.data);
   }
 
   ngOnInit() {
-    this.fetchData.getMouldData().
-    subscribe( (response) => {
-      this.data = response;
-      this.fetchData.setData(this.data);
-      this.initialise();
-    });
-  }
-  initialise() {
+    
     const lineChart = this.lineChart.nativeElement;
     const pieChart = this.pieChart.nativeElement;
     const interpolation = this.interpolation.nativeElement;
-    //this.data = this.getData();
+    this.data = this.getData();
     this.handleHorizontalBar();
     this.pieChart = new Chart(pieChart, {
       type: 'pie',
@@ -52,7 +49,7 @@ export class DashboardComponent implements OnInit {
       },
       options: {
         title: {
-          display: true,
+          display: false,
           text: 'Today\'s Assessment'
         },
         legend: { display: true,
@@ -93,7 +90,7 @@ export class DashboardComponent implements OnInit {
         },
         title: {
           display: true,
-          text: 'Mould Status-Forecast'
+          text: ''
         },
         legend: { display: true,
         position: 'bottom' }
@@ -128,14 +125,14 @@ export class DashboardComponent implements OnInit {
           }],
         },
         title: {
-          display: true,
+          display: false,
           text: 'Historical- Data'
         },
         legend: { display: true,
           position: 'bottom' }
-      } 
-     });
-    
+      }
+    });
+
   }
   showMouldToAssess() {
     this.router.navigate(['/home/records']);
@@ -216,17 +213,16 @@ export class DashboardComponent implements OnInit {
         labels: this.getLabels(),
         datasets: [
           {
-            label: "Population (millions)",
+            label: "Number",
             backgroundColor: ["orange", "orange"],
             data: this.getHorizontalBarData()
           }
         ]
       },
       options: {
-        legend: { display: false },
+        legend: { display: true, position: 'bottom' },
         title: {
-          display: true,
-          text: 'Mould to be assessed'
+          display: true
         }
       }
     });

@@ -1,30 +1,35 @@
-
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-	<a href="#" class="navbar-brand"><i class="fa fa-cube"></i>IMAS</a>  		
-	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
-		<form class="form-header" style="padding-left: 61px;" action="" method="POST">
-  <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports...">
-  <button class="fa fa-search fa-10x au-btn--submit" type="submit">
-  <i class="zmdi zmdi-search"></i>
-  </button>
-  </form>
-		<div class="navbar-nav ml-auto">	
-			<a href="#" class="nav-item nav-link"><i class="fa fa-bell search" style="font-size:35px;"></i></a>
-      <div class="noti__item js-item-menu">
-      <span class="quantity">3</span>
-      </div>
-      <div class="nav-item dropdown">
-				<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="https://www.tutorialrepublic.com/examples/images/avatar/3.jpg" class="avatar" alt="Avatar">Abhishekh</a>
-				<div class="dropdown-menu">
-					<a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Account</a>
-					<a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Settings</a>
-					<div class="divider dropdown-divider"></div>
-					<a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a>
-				</div>
-			</div>
-		</div>
+<header class="header row">
+	<div class="">
+		
+		<h2 class="col-4 header--title">
+			<span>
+				<i class="fa fa-cube icon-imas"></i>
+				<span style="margin-left: 20px;">IMAS</span>
+			</span>
+		</h2>
+	  </div>
+	  <div class="options-menu float-right" >
+		<button mat-icon-button [matMenuTriggerFor]="menu"
+			aria-label="Example icon-button with a menu">
+		  <span class="options-icon"><mat-icon>more_vert</mat-icon></span>
+		</button>
+		<mat-menu #menu="matMenu">
+		  <button mat-menu-item>
+			<mat-icon>person</mat-icon>
+			<span>Profile</span>
+		  </button>
+		  <button mat-menu-item disabled>
+			<mat-icon>mood</mat-icon>
+			<span>Feedback</span>
+		  </button>
+		  <button mat-menu-item>
+			  <mat-icon>notifications</mat-icon>
+			  <span>Notifications</span>
+			</button>
+		  <button mat-menu-item (click)="logout()">
+			<mat-icon>directions_run</mat-icon>
+			<span>Logout</span>
+		  </button>
+		</mat-menu>
 	</div>
-</nav>
+</header>

@@ -1,49 +1,52 @@
-<div class="">
-  <div class="">
-    <div class="row" style="display:inherit;padding-bottom: 10px;">
-      <div class="row justify-content-center forecast-styles">Forecast</div>
-      <div class="">
-        <div class="col-md-4 col-sm-4 canvas-border" (click)="showMouldToAssess()" style="margin-left: 7% !important;">    
-          <div class="chart1">
-            <!-- <mat-form-field appearance="fill">
-              <input matInput [matDatepicker]="picker1" [formControl]="date" (dateChange)="onDateChange($event)">
-              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-              <mat-datepicker #picker1></mat-datepicker>
-            </mat-form-field> -->
-            <canvas id="horizontalBar" #horizontalBar width="30% !important" height="20% !important"></canvas>
-          </div>      
+<div class="row">
+  <div class="header">
+    <span>Forecast</span>
+  </div>
+  <div class="row col-12">
+    <div class="canvas-area" (click)="showMouldToAssess()">
+      <div class="details">
+        <span>Moulds Assessment Recommended for Today</span>
+        <div class="date-picker">
+          <mat-form-field appearance="fill">
+            <input matInput [matDatepicker]="picker1" [formControl]="date" (dateChange)="onDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
         </div>
       </div>
       <div class="">
-        <div class="col-md-4 col-sm-4">
-          <div class="container" style="background-color: white;border-radius: 19px !important;box-shadow: 3px 4px 3px 0px burlywood;margin-left: 40% !important;border: 2px solid black;">
-            <div>
-              <canvas id="lineChart" #lineChart width="30% !important" height="22% !important"></canvas>
-            </div>
-          </div>  
-      </div>
-  
-    </div>            
-  </div> 
-  <hr style="border:1.5px solid blue;margin-top:10px;">
-  <div class="row" style="display:inherit;padding-top: 15px;">
-    <div class="row justify-content-center forecast-styles" style="padding-bottom:10px;">Assessment Result - 1st September</div>
-    <div class="" style="padding-top: 10px;">
-      <div class="col-md-4 col-sm-4" (click)="showResults()" style="background-color: white;border-radius: 19px !important;box-shadow: 3px 4px 3px 0px burlywood;margin-left: 7% !important;border: 2px solid black;">    
-        <div class="chart1">
-          <canvas id="pieChart" #pieChart width="30% !important" height="20% !important"></canvas>
-        </div>      
+        
+        <canvas id="horizontalBar" #horizontalBar width="16% !important" height="8% !important"></canvas>
       </div>
     </div>
-    <div class="">
-      <div class="col-md-4 col-sm-4">
-        <div class="container" style="background-color: white;border-radius: 19px !important;box-shadow: 3px 4px 3px 0px burlywood;margin-left: 40% !important;border: 2px solid black;">
-          <div>
-            <canvas id="interpolation" #interpolation width="30% !important" height="22% !important"></canvas>
-          </div>
-        </div>  
+    <div class="canvas-area">
+      <div class="details">
+        <span>Mould Status - Forecast</span>
+      </div>
+      <div class="">
+        <canvas id="lineChart" #lineChart width="16% !important" height="8% !important"></canvas>
+      </div>
     </div>
-  
-  </div>            
-  </div>  
-  </div> 
+  </div>
+  <div class="header">
+    <span>Assessment Result</span>
+  </div>
+  <div class="row col-12">
+    <div class="canvas-area" (click)="showResults()">
+      <div class="details">
+        <span>Today's assessment</span>
+      </div>
+      <div class="">
+        <canvas id="pieChart" #pieChart width="16% !important" height="8% !important"></canvas>
+      </div>
+    </div>
+    <div class="canvas-area">
+      <div class="details">
+        <span>Historical Data</span>
+      </div>
+      <div class="">
+        <canvas id="interpolation" #interpolation width="16% !important" height="8% !important"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
