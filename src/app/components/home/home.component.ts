@@ -13,8 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data: Data) => {
-      console.log(data);
-      this.fetchData.setData(data);
+      this.fetchData.setData(data.data);
     });
   }
 

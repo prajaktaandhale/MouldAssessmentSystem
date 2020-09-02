@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Polygon } from '../components/home/polygon.model';
-import { PolygonStatusService } from '../services/polygon-status.service';
+import { map } from 'rxjs/operators';
+import { Data } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +10,12 @@ export class FetchDataService {
   data;
   listResponse;
 
-  constructor(private http:HttpClient, private polygonStatus: PolygonStatusService) { 
+  constructor(private http:HttpClient) { 
   }
 
   
   getMouldData() {
-    let promise = this.http.get<any>("http://localhost:8080/getPolygonData");
-    return promise;
-    
+    return this.http.get('http://localhost:8080/getPolygonData').pipe(map((data: Data) => data));
   }
 
   setData(response) {
