@@ -41,8 +41,8 @@ const appRoutes: Routes = [
   { path: "", component: LoginComponent },
   { path: "login", component: LoginComponent },
   {
-    path: "home", component: HomeComponent, resolve: {data: HomeService}, children: [
-      { path: '', component: DashboardComponent },
+    path: "home", component: HomeComponent, children: [
+      { path: '', component: DashboardComponent, resolve: { data: HomeService } },
       { path: 'todayStatus', component: TodayAssessmentTabelComponent },
       { path: 'records', component: RecordComponent }
     ]

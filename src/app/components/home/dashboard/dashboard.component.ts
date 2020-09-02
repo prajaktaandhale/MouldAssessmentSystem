@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PolygonStatusService } from 'src/app/services/polygon-status.service';
 import { Chart } from '../../../../../node_modules/chart.js';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Data } from '@angular/router';
 import { FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import _ from 'lodash';
 import { FetchDataService } from 'src/app/services/fetch-data.service.js';
+import _ from 'lodash';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,11 +20,16 @@ export class DashboardComponent implements OnInit {
   horizontalBarSelectedDate = new Date();
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router, 
     private fetchData: FetchDataService
   ) {}
 
   ngOnInit() {
+    this.route.data.subscribe((data: Data) => {
+      this.fetchData.setData(data.data);
+      this.data = data.data;
+    });
     const lineChart = this.lineChart.nativeElement;
     const pieChart = this.pieChart.nativeElement;
     const interpolation = this.interpolation.nativeElement;
@@ -202,6 +205,7 @@ export class DashboardComponent implements OnInit {
   }
 
   handleHorizontalBar() {
+    // creation of horizontal bar chart
     const horizontalBar = this.horizontalBar.nativeElement;
     this.horizontalBar = new Chart(horizontalBar, {
       type: 'horizontalBar',
@@ -248,6 +252,6 @@ export class DashboardComponent implements OnInit {
       }).length;
       data.push(count);
     });
-    return data; //[2, 2]
+    return data; //[1, 2]
   }
 }

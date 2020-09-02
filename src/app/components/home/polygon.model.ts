@@ -13,6 +13,6 @@ export class Polygon {
         public manufacturor: string,
         public dicommisionDate : Date
         ) {
-        
+            
     }
 }

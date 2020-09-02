@@ -7,7 +7,7 @@ import { Data } from '@angular/router';
   providedIn: 'root'
 })
 export class FetchDataService {
-  data;
+  public data: any;
   listResponse;
 
   constructor(private http:HttpClient) { 
