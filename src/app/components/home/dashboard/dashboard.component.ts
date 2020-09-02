@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     const lineChart = this.lineChart.nativeElement;
     const pieChart = this.pieChart.nativeElement;
     const interpolation = this.interpolation.nativeElement;
-    this.data = this.fetchData.getMouldData();
+    this.data = this.fetchData.getData();
     this.handleHorizontalBar();
     this.pieChart = new Chart(pieChart, {
       type: 'pie',
