@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Polygon } from '../polygon.model';
 import { HttpClient } from '@angular/common/http';
-import { PolygonStatusService } from 'src/app/services/polygon-status.service';
-import { FetchDataService } from 'src/app/services/fetch-data.service';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-record',
@@ -14,19 +13,15 @@ export class RecordComponent implements OnInit {
   data;
 
   constructor(private http: HttpClient,
-    private polygonStatus: PolygonStatusService,
-    private fetchData: FetchDataService
+    private route: ActivatedRoute,
   ) { }
   cols: any[];
   
 
   ngOnInit() {
-    const response = this.fetchData.getData();
-    console.log()
-    if (response) {
-      this.data = response.forecastedPolygonlist;
-      console.log('record', this.data);
-    }
+    this.route.data.subscribe((data: Data) => {
+      this.data = data.data.forecastedPolygonlist;
+    });
     this.cols = [
       { field: 'sku', header: 'Sku' },
       { field: 'mouldId', header: 'Mould' },
