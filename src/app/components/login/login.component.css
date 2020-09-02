@@ -4,9 +4,13 @@
     background-color: #3665bb;
 }
 .title-content {
-  font-size: 2.7vw;
   color: white;
-  font-weight: bold;
+  font-size: 50px;
+  font-weight: 500;
+  top: 30vh;
+  text-shadow: 2px 3px black;
+  text-transform: uppercase;
+  text-align: center;
 }
 .hr-new {
   border: 1.5px solid #4cf34c;;
@@ -24,21 +28,41 @@
 }
 .input-width {
   width: 70%;
-  font-size: 1.3vw;
+  font-size: 18px;
 }
 .create-account-label {
   padding-bottom: 3%;
   padding-left: 25%;
   font-size: 1.5vw;
 }
+.sign-in-label {
+  font-size: 26px;
+  font-weight: 300;
+}
 .sign-up-button {
-  font-size: 1.5vw;
-    margin-left: 25%;
-    padding-left: 5%;
-    padding-right: 5%;
-
+  font-size: 20px;
+  float: right;
 }
 
+.input-icon {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.forgot-password {
+  font-size:16px;
+  position: absolute;
+  right: 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.user-auth p {
+  font-size: 16px;
+  margin-left: 12px;
+}
 
 
 /* .login-page {
@@ -91,7 +115,7 @@
     z-index : -1;
   }
   .image-tag {
-    background-image: url('src\assets\img\MouldHomePage.png');
+    background-image: url('src\assets\img\MouldHome.png');
     width: 90%;
     height: 157%;
     z-index: -1;

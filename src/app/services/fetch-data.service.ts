@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Polygon } from '../components/home-page/polygon.model';
+import { Polygon } from '../components/home/polygon.model';
 
 @Injectable({
   providedIn: 'root'

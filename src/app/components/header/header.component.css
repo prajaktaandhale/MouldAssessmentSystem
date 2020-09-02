@@ -17,6 +17,7 @@
 .navbar {
     box-shadow: 3px 2px 3px grey;
     min-height: 75px;
+    margin-bottom: 0;
 }
 
 .header--title {

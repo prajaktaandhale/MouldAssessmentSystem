@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-first-page',
-  templateUrl: './first-page.component.html',
-  styleUrls: ['./first-page.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class FirstPageComponent implements OnInit {
+export class LoginComponent implements OnInit {
+  
   isLoggedIn = false;
   error: string = null;
   message = null;
@@ -28,6 +29,7 @@ export class FirstPageComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    console.log(form.value);
     this.error = null;
     if (!form.valid) {
       return;
@@ -51,7 +53,7 @@ export class FirstPageComponent implements OnInit {
         if(!this.isLoggedIn) {
           this.message = "logged in successfully";
           this.isLoggedIn = !this.isLoggedIn;
-          this.router.navigate(['/homePage']);
+          this.router.navigate(['/home']);
         }
       }, errorMessage => {
         console.log(errorMessage);

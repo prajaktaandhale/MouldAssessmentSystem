@@ -6,19 +6,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./components/header/header.component";
-import { DashboardComponent } from './components/home-page/dashboard/dashboard.component';
-import { HomePageComponent } from "./components/home-page/home-page.component";
-import { FirstPageComponent } from "./components/first-page/first-page.component";
+import { DashboardComponent } from './components/home/dashboard/dashboard.component';
+import { HomeComponent } from "./components/home/home.component";
+import { LoginComponent } from "./components/login/login.component";
 import { LeftPanelComponent } from "./components/left-panel/left-panel.component";
-import { RecordComponent } from './components/home-page/record/record.component';
+import { RecordComponent } from './components/home/record/record.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {TableModule} from 'primeng/table';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
-import {MenuModule} from 'primeng/menu';
-import {MenubarModule} from 'primeng/menubar';
-import {CardModule} from 'primeng/card';
+import { MenuModule } from 'primeng/menu';
+import { MenubarModule } from 'primeng/menubar';
+import { CardModule } from 'primeng/card';
 import { ChartsModule } from 'ng2-charts';
 
 
@@ -33,24 +33,26 @@ import {
   MatNativeDateModule,
 } from '@angular/material';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
-import { TodayAssessmentTabelComponent } from './components/home-page/today-assessment-tabel/today-assessment-tabel.component';
+import { TodayAssessmentTabelComponent } from './components/home/today-assessment-tabel/today-assessment-tabel.component';
 
 const appRoutes: Routes = [
-  { path: "", component: FirstPageComponent },
-  { path: "firstPage", component: FirstPageComponent },
-  { path: "homePage", component: HomePageComponent, children: [
-    {path: '', component: DashboardComponent},
-    {path: 'todayStatus', component: TodayAssessmentTabelComponent},
-    {path: 'records', component: RecordComponent}
-  ] },
+  { path: "", component: LoginComponent },
+  { path: "login", component: LoginComponent },
+  {
+    path: "home", component: HomeComponent, children: [
+      { path: '', component: DashboardComponent },
+      { path: 'todayStatus', component: TodayAssessmentTabelComponent },
+      { path: 'records', component: RecordComponent }
+    ]
+  },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomePageComponent,
-    FirstPageComponent,
+    HomeComponent,
+    LoginComponent,
     LeftPanelComponent,
     RecordComponent,
     DashboardComponent,
@@ -58,7 +60,7 @@ const appRoutes: Routes = [
     TodayAssessmentTabelComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
     BrowserModule,
@@ -72,7 +74,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
-    RouterModule.forRoot(appRoutes), 
+    RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     HttpClientModule,
     TableModule,
@@ -87,4 +89,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

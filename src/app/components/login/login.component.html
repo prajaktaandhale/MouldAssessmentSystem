@@ -1,0 +1,66 @@
+<div class="title-container text-center col-md-6 col-xl-6">
+  <div class=" p-jc-center" style="padding-top: 25%;">
+    <div class="title-content">
+      <div class="">Intelligent Mould Assessment</div>
+      <div>System</div>
+    </div>
+    <hr class="hr-new"/>
+    <div class="text-div">
+      <span>Sign in to continue to your account</span>
+    </div>
+
+  </div>    
+</div>
+<div class="col-md-6 col-xl-6">
+  <div class="" style="padding-top:25%; padding-left:10%">
+    <form #authForm="ngForm" action="" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoggedIn">
+      <div>
+        <label class="sign-in-label">Sign in</label><br/>
+      </div>
+      <div class="form-group" style="padding-top: 5%;">
+          <mat-form-field class="input-width">
+            <span matPrefix class="input-icon"><mat-icon aria-hidden="false" aria-label="Example home icon">email</mat-icon></span>
+            <mat-label>Email ID</mat-label>
+            <input matInput placeholder="some.user@example.com" id="email" ngModel name="email" required email>
+          </mat-form-field>
+          <!-- <input type="email" class="form-control mb-2 mr-sm-2 mb-5 input-width" placeholder="Enter address" id="email" ngModel name="email" required email> -->
+      </div>
+      <div class="form-group">
+        <mat-form-field class="input-width">
+          <span matPrefix class="input-icon"><mat-icon aria-hidden="false" aria-label="Example home icon">remove_red_eye
+          </mat-icon></span>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" id="password" ngModel name="password" required type="password" minlength="6">
+        </mat-form-field>
+        <!-- <input type="password" class="form-control mb-2 mr-sm-2 mb-5 input-width" placeholder="Password" id="password" ngModel name="password" required minlength="6"> -->
+      </div>
+      <div style="width: 70%;">
+        <button type="submit" mat-flat-button color="primary" class="btn btn-primary sign-up-button">Sign in</button>
+      </div>
+      <div class="row user-auth" style="display: block;">
+        <p><a href="#">Forgot Password?</a></p>
+        <br>
+        <p><a href="#" (click)="changeValue()">Create a new account</a></p>
+      </div>
+    </form>
+
+    <form class="" #authForm="ngForm" action="" (ngSubmit)="onSubmit(authForm)" *ngIf="isLoggedIn" style="padding-top: 0%"> 
+      <div class="row">
+        <label class="text-primary text-center create-account-label">Create Account</label>
+      </div>
+      <div class="">
+        <div class="form-group">
+          <input type="text" class="form-control form-control-md mb-5 input-width" value="username" id="username" placeholder="Enter User Name" ngModel name="username" required >
+        </div>
+        <div class="form-group">     
+          <input type="email" class="form-control form-control-md mb-5 input-width" id="email" placeholder="Enter email" ngModel name="email" required email>     
+        </div>     
+        <div class="form-group">    
+          <input type="password" class="form-control form-control-md mb-5 input-width" id="password" placeholder="Password" ngModel name="password" required minlength="6">    
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg sign-up-button">Sign Up</button>
+      </div>           
+    </form>
+  </div>
+</div>
+

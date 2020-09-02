@@ -135,10 +135,10 @@ export class DashboardComponent implements OnInit {
 
   }
   showMouldToAssess() {
-    this.router.navigate(['/homePage/records']);
+    this.router.navigate(['/home/records']);
   }
   showResults() {
-    this.router.navigate(['/homePage/todayStatus']);
+    this.router.navigate(['/home/todayStatus']);
   }
 
   onDateChange(event) {
