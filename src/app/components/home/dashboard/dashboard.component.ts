@@ -2,7 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from '../../../../../node_modules/chart.js';
 import { Router, ActivatedRoute, Data } from '@angular/router';
 import { FormControl } from '@angular/forms';
-import { FetchDataService } from 'src/app/services/fetch-data.service.js';
+import { Store } from '@ngrx/store';
+import * as action from '../../../store/imas.actions';
+import stubdata from '../../../../assets/data/response.js';
+
+
 import _ from 'lodash';
 
 @Component({
@@ -22,18 +26,21 @@ export class DashboardComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router, 
-    private fetchData: FetchDataService
+    private store: Store<{ imas: any }>
   ) {}
 
   ngOnInit() {
     this.route.data.subscribe((data: Data) => {
-      this.fetchData.setData(data.data);
-      this.data = data.data;
+      this.store.dispatch(new action.SetData(data));
+      this.data = data;
+      this.initialize();
     });
+  }
+
+  initialize() {
     const lineChart = this.lineChart.nativeElement;
     const pieChart = this.pieChart.nativeElement;
     const interpolation = this.interpolation.nativeElement;
-    this.data = this.fetchData.getData();
     this.handleHorizontalBar();
     this.pieChart = new Chart(pieChart, {
       type: 'pie',
@@ -131,7 +138,6 @@ export class DashboardComponent implements OnInit {
           position: 'bottom' }
       }
     });
-
   }
   showMouldToAssess() {
     this.router.navigate(['/home/records']);

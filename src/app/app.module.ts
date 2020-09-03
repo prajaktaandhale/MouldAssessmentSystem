@@ -20,7 +20,7 @@ import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
 import { ChartsModule } from 'ng2-charts';
-
+import { StoreModule } from '@ngrx/store';
 
 import {
   MatCardModule,
@@ -36,6 +36,7 @@ import {
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { TodayAssessmentTabelComponent } from './components/home/today-assessment-tabel/today-assessment-tabel.component';
 import { HomeService } from './services/home.service';
+import { imasReducer } from './store/imas.reducer';
 
 const appRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -43,8 +44,8 @@ const appRoutes: Routes = [
   {
     path: "home", component: HomeComponent, children: [
       { path: '', component: DashboardComponent, resolve: { data: HomeService } },
-      { path: 'todayStatus', component: TodayAssessmentTabelComponent, resolve: { data: HomeService } },
-      { path: 'records', component: RecordComponent, resolve: { data: HomeService } }
+      { path: 'todayStatus', component: TodayAssessmentTabelComponent },
+      { path: 'records', component: RecordComponent }
     ]
   },
 ];
@@ -87,8 +88,8 @@ const appRoutes: Routes = [
     ChartsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMenuModule
-
+    MatMenuModule,
+    StoreModule.forRoot({imas: imasReducer})
   ],
   providers: [],
   bootstrap: [AppComponent],

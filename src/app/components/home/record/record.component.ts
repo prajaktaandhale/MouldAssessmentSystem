@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Polygon } from '../polygon.model';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Data } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-record',
@@ -11,16 +11,20 @@ import { ActivatedRoute, Data } from '@angular/router';
 export class RecordComponent implements OnInit {
   polygon: Polygon;
   data;
-
-  constructor(private http: HttpClient,
-    private route: ActivatedRoute,
-  ) { }
   cols: any[];
+
+  constructor(
+    private http: HttpClient,
+    private store: Store<{ imas: any }>
+  ) { }
+
   
 
   ngOnInit() {
-    this.route.data.subscribe((data: Data) => {
-      this.data = data.data.forecastedPolygonlist;
+    this.store.select('imas').subscribe((data) => {
+      if (data) {
+        this.data = data.data.forecastedPolygonlist;
+      }
     });
     this.cols = [
       { field: 'sku', header: 'Sku' },

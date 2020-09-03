@@ -1,17 +1,11 @@
 .healthy-color {
     color: green;
-    font-size: 4rem;
-    padding-left: 65px;
 }
 .probe-color {
     color: orange;
-    font-size: 3rem;
-    padding-left: 65px;
 }
 .disposable-color {
     color:red;
-    font-size: 4rem;
-    padding-left: 65px;
 }
 .text-color {
     color:  #4272d7;
@@ -31,4 +25,13 @@
 }
 .align {
     float: right;
+}
+
+.custom-icon {
+    padding-left: 25px;
+    font-size: 90px !important;
+}
+
+.label {
+    font-weight: 300;
 }

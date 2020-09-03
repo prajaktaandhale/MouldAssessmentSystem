@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Polygon } from '../polygon.model';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { PolygonStatusService } from 'src/app/services/polygon-status.service';
-import { ɵAnimationGroupPlayer } from '@angular/animations';
-import { FetchDataService } from 'src/app/services/fetch-data.service';
-import { ActivatedRoute, Data } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-today-assessment-tabel',
@@ -12,19 +8,22 @@ import { ActivatedRoute, Data } from '@angular/router';
   styleUrls: ['./today-assessment-tabel.component.css']
 })
 export class TodayAssessmentTabelComponent implements OnInit {
-  polygon: Polygon;
   data: any[];
-  response;
+  cols: any[];
+  params: any;
+  cards: any[] = [];
 
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute) { }
-  cars: any[];
-  cols: any[];
+    private store: Store<{ imas: any }>
+  ) { }
 
   ngOnInit() {
-    this.route.data.subscribe((data: Data) => {
-      this.data = data.data.assessedPolygonlist;
+    this.store.select('imas').subscribe((data) => {
+      if (data) {
+        this.data = data.data.assessedPolygonlist;
+        this.calculateParams();
+      }
     });
     this.cols = [
       { field: 'sku', header: 'Sku' },
@@ -35,7 +34,38 @@ export class TodayAssessmentTabelComponent implements OnInit {
       { field: 'cyclesUsed', header: 'Cycles Used' },
       { field: 'assessDate', header: 'Assessment Date' },
       { field: 'polygonStatus', header: 'Status' },
-    ];     
+    ];
+    
+  }
+
+  private calculateParams() {
+    this.params = {
+      healthy: 0,
+      needProbe: 0,
+      disposable: 0
+    }
+    this.data.forEach(el => {
+      switch (el.polygonStatus.toLowerCase()) {
+        case 'healthy':
+          this.params.healthy = this.params.healthy + 1;
+          break;
+        case 'needs to probe':
+          this.params.needProbe = this.params.needProbe + 1;
+          break;
+        case 'disposable':
+          this.params.disposable = this.params.disposable + 1;
+          break;                
+      }
+    });
+    this.createCards();
+  }
+
+  createCards() {
+    this.cards = [
+      { label: 'Healthy', class: 'fa fa-check-circle-o fa-6x custom-icon healthy-color', param: this.params.healthy },
+      { label: 'Need Probe', class: 'fa fa-search fa-6x custom-icon probe-color', param: this.params.needProbe },
+      { label: 'Disposable', class: 'fa fa-trash fa-6x custom-icon disposable-color', param: this.params.disposable }
+    ]
   }
 
   onClickRecord(event, el) {

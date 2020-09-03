@@ -12,10 +12,9 @@ export class FetchDataService {
 
   constructor(private http:HttpClient) { 
   }
-
   
   getMouldData() {
-    return this.http.get('http://localhost:8080/getPolygonData').pipe(map((data: Data) => data));
+    return this.http.get('https://localhost:8080/getPolygonData').pipe(map((data: Data) => data));
   }
 
   setData(response) {

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Resolve} from '@angular/router';
-
 import { FetchDataService } from './fetch-data.service';
 
 @Injectable({

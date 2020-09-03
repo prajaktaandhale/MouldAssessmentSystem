@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Data, Router, ActivationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-left-panel',
@@ -35,9 +36,17 @@ export class LeftPanelComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.router);
+    this.router.events.subscribe((data: Data) => {
+      if (data instanceof ActivationEnd) {
+        console.log(data);
+      }
+    });
+  }
+
   routeToPage(type) {
     this.types.forEach(type => type.active = false);
     this.types.find(t => t === type).active = true;
