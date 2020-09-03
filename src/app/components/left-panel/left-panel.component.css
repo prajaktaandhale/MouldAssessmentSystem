@@ -6,7 +6,12 @@
   width: 16vw !important;
   height: 100%;
 }
-
+.side-nav__custom li ul.level_1{
+  display: none;
+}
+.side-nav__custom li.active ul.level_1{
+  display: block;
+}
 a {
   cursor: pointer;
 }
@@ -28,8 +33,10 @@ a {
   top: 14px;
   font-size: 18px !important;
 }
-
-.active {
+.sidebar .nav-item.active .nav-link {
+  font-weight: normal !important;
+}
+.sidebar .nav-item.active > .nav-link {
   color: #fff !important;
-  font-weight: 500;
+  font-weight: bold !important;
 }

@@ -1,9 +1,17 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion side-nav__custom" id="accordionSidebar">
-  <li class="nav-item" *ngFor="let type of types" (click)="routeToPage(type)">
-        <a class="nav-link"  [ngClass]="{'active': type.active}">
+  <li class="nav-item" *ngFor="let type of types" (click)="routeToPage(type)" [ngClass]="{'active': type.active}">
+        <a class="nav-link">
             <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon">{{ type.icon }}</mat-icon></span>
             <span class="name">{{ type.name }}</span>
         </a>
         <hr class="sidebar-divider">
+        <ul *ngIf="type.level_1" class="level_1">
+            <li class="nav-item" *ngFor="let level_1_type of type.level_1" (click)="routeToPage(level_1_type)"  [ngClass]="{'active': level_1_type.active}">
+                <a class="nav-link">
+                    <span class="icon" *ngIf="level_1_type.icon"><mat-icon aria-hidden="false" aria-label="Example home icon">{{ level_1_type.icon }}</mat-icon></span>
+                    <span class="name">{{ level_1_type.name }}</span>
+                </a>
+            </li>
+        </ul>
     </li>
 </ul>

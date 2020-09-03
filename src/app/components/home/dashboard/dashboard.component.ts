@@ -233,8 +233,16 @@ export class DashboardComponent implements OnInit {
         legend: { display: true, position: 'bottom' },
         title: {
           display: true
+        },
+        scales: {
+          xAxes: [{
+              ticks: {
+                beginAtZero: true,
+                stepSize: 1
+              }
+          }]
         }
-      }
+      },
     });
   }
 

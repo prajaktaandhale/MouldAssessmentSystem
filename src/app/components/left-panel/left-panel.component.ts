@@ -20,7 +20,23 @@ export class LeftPanelComponent implements OnInit {
       route: 'report',
       type: 'general',
       icon: 'bar_chart',
-      active: false
+      active: false,
+      level_1: [
+        {
+          name: 'Forecast',
+          route: 'report',
+          type: 'forcast',
+          icon: null,
+          active: false
+        },
+        {
+          name: 'Assesment result',
+          route: 'report',
+          type: 'assesment',
+          icon: null,
+          active: false
+        }
+      ]
     }, {
       name: 'Alerts',
       route: 'alerts',
