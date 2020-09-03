@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Polygon } from '../polygon.model';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
+import { FetchDataService } from '../../../services/fetch-data.service';
 
 @Component({
   selector: 'app-record',
@@ -12,10 +13,12 @@ export class RecordComponent implements OnInit {
   polygon: Polygon;
   data;
   cols: any[];
+  headerName: string;
 
   constructor(
     private http: HttpClient,
-    private store: Store<{ imas: any }>
+    private store: Store<{ imas: any }>,
+    private fetchService: FetchDataService
   ) { }
 
   
@@ -36,6 +39,7 @@ export class RecordComponent implements OnInit {
       { field: 'assessmentDate', header: 'Assessment Date' },
       { field: 'polygonStatus', header: 'Status' },
     ];
+    this.headerName = this.fetchService.getHeaderName();
   }
 
   onClickRecord(event, el) {

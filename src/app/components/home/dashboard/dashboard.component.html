@@ -3,7 +3,7 @@
     <span>Forecast</span>
   </div>
   <div class="row col-12">
-    <div class="canvas-area" (click)="showMouldToAssess()">
+    <div class="canvas-area" (click)="showMouldToAssess('Moulds Assessment Recommended for Today')">
       <div class="details">
         <span>Moulds Assessment Recommended for Today</span>
         <div class="date-picker">
@@ -19,7 +19,7 @@
         <canvas id="horizontalBar" #horizontalBar width="16% !important" height="8% !important"></canvas>
       </div>
     </div>
-    <div class="canvas-area">
+    <div class="canvas-area" (click)="showMouldToAssess('Mould Status - Forecast')">
       <div class="details">
         <span>Mould Status - Forecast</span>
       </div>
@@ -32,7 +32,7 @@
     <span>Assessment Result</span>
   </div>
   <div class="row col-12">
-    <div class="canvas-area" (click)="showResults()">
+    <div class="canvas-area" (click)="showResults('Today\'s assessment')">
       <div class="details">
         <span>Today's assessment</span>
       </div>
@@ -40,7 +40,7 @@
         <canvas id="pieChart" #pieChart width="16% !important" height="8% !important"></canvas>
       </div>
     </div>
-    <div class="canvas-area">
+    <div class="canvas-area" (click)="showResults('Historical Data')">
       <div class="details">
         <span>Historical Data</span>
       </div>

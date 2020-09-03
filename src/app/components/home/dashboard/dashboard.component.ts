@@ -5,6 +5,7 @@ import { FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as action from '../../../store/imas.actions';
 import stubdata from '../../../../assets/data/response.js';
+import { FetchDataService } from '../../../services/fetch-data.service';
 
 
 import _ from 'lodash';
@@ -26,7 +27,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router, 
-    private store: Store<{ imas: any }>
+    private store: Store<{ imas: any }>,
+    private fetchService: FetchDataService
   ) {}
 
   ngOnInit() {
@@ -139,11 +141,13 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
-  showMouldToAssess() {
+  showMouldToAssess(header: string) {
     this.router.navigate(['/home/records']);
+    this.fetchService.setHeaderName(header);
   }
-  showResults() {
+  showResults(header: string) {
     this.router.navigate(['/home/todayStatus']);
+    this.fetchService.setHeaderName(header);
   }
 
   onDateChange(event) {

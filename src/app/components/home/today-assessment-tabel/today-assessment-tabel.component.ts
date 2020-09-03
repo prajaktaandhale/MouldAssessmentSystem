@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
+import { FetchDataService } from '../../../services/fetch-data.service';
 
 @Component({
   selector: 'app-today-assessment-tabel',
@@ -12,10 +13,12 @@ export class TodayAssessmentTabelComponent implements OnInit {
   cols: any[];
   params: any;
   cards: any[] = [];
+  headerName: string;
 
   constructor(
     private http: HttpClient,
-    private store: Store<{ imas: any }>
+    private store: Store<{ imas: any }>,
+    private fetchService: FetchDataService
   ) { }
 
   ngOnInit() {
@@ -35,7 +38,7 @@ export class TodayAssessmentTabelComponent implements OnInit {
       { field: 'assessDate', header: 'Assessment Date' },
       { field: 'polygonStatus', header: 'Status' },
     ];
-    
+    this.headerName = this.fetchService.getHeaderName();
   }
 
   private calculateParams() {

@@ -9,6 +9,7 @@ import { Data } from '@angular/router';
 export class FetchDataService {
   public data: any;
   listResponse;
+  header: string;
 
   constructor(private http:HttpClient) { 
   }
@@ -23,6 +24,14 @@ export class FetchDataService {
 
   getData() {
     return this.data;
+  }
+
+  setHeaderName(header) {
+    this.header = header;
+  }
+
+  getHeaderName() {
+    return this.header;
   }
 
 
