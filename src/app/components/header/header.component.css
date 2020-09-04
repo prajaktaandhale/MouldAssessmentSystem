@@ -3,7 +3,11 @@
     margin-top: -16px;
     padding: 12px;
     font-weight: bold;
-    background-color: #4e73df;
+    background-color: #1f1f1f !important;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
 }
 
 .header--title {

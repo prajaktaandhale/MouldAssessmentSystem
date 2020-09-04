@@ -10,8 +10,12 @@ html, body { height: 100%; }
 
 .snackbar {
     font-size: 60px !important;
-    margin-top: 18% !important;
+    margin-top: 10vh !important;
     background-color: orangered;
     color: white;
-    margin-left: 115% !important;
-  }
+    margin-left: -32vw !important;
+}
+
+.snackbar .mat-simple-snackbar-action {
+    color: white;
+}

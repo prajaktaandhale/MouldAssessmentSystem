@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion side-nav__custom" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion side-nav__custom" id="accordionSidebar">
   <li class="nav-item" *ngFor="let type of types" (click)="routeToPage(type)" [ngClass]="{'active': type.active}">
         <a class="nav-link">
             <span class="icon"><mat-icon aria-hidden="false" aria-label="Example home icon">{{ type.icon }}</mat-icon></span>

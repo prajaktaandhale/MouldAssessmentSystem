@@ -4,6 +4,8 @@
   padding-top: 15px;
   width: 16vw !important;
   height: 100%;
+  position: fixed;
+  background-color: #1f1f1f !important
 }
 .side-nav__custom li ul.level_1{
   display: none;
@@ -21,21 +23,24 @@ a {
 }
 
 .icon {
-  color: black;
-  /* margin-right: 8px; */
+  color: white;
   font-size: 10px !important;
+  margin-left: 35px;
 }
 
 .name {
   position: absolute;
   left: 60px;
-  top: 14px;
+  top: 16px;
   font-size: 18px !important;
+  margin-left: 40px;
+  font-weight: 100;
+  color: white;
 }
 .sidebar .nav-item.active .nav-link {
   font-weight: normal !important;
 }
 .sidebar .nav-item.active > .nav-link {
   color: #fff !important;
-  font-weight: bold !important;
+  font-weight: 400 !important;
 }

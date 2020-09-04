@@ -28,6 +28,12 @@ div > .canvas-area:first-of-type {
   margin-bottom: 5px;
 }
 
+.details span {
+  width: 50% !important;
+  display: inline-block;
+  margin-top: -14px;
+}
+
 .header-label {
   font-size: 180%;
   word-spacing: 2px;
@@ -49,7 +55,7 @@ div > .canvas-area:first-of-type {
   font-size: 26px;
   flex: auto;
   text-align: center;
-  margin: 50px 0px;
+  margin: 40px 0px;
 }
 
 .header:after {
@@ -64,7 +70,7 @@ div > .canvas-area:first-of-type {
 }
 
 .header:first-of-type {
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 .header > span {
