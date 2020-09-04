@@ -33,10 +33,15 @@ import {
   MatNativeDateModule,
   MatMenuModule,
 } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { TodayAssessmentTabelComponent } from './components/home/today-assessment-tabel/today-assessment-tabel.component';
 import { HomeService } from './services/home.service';
 import { imasReducer } from './store/imas.reducer';
+import { CanvasHorizontalBarComponent } from './components/canvases/canvas-horizontal-bar/canvas-horizontal-bar.component';
+import { CanvasLineChartComponent } from './components/canvases/canvas-line-chart/canvas-line-chart.component';
+import { CanvasPieChartComponent } from './components/canvases/canvas-pie-chart/canvas-pie-chart.component';
+import { CanvasInterpolationComponent } from './components/canvases/canvas-interpolation/canvas-interpolation.component';
 
 const appRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -60,7 +65,11 @@ const appRoutes: Routes = [
     RecordComponent,
     DashboardComponent,
     LoadingSpinnerComponent,
-    TodayAssessmentTabelComponent
+    TodayAssessmentTabelComponent,
+    CanvasHorizontalBarComponent,
+    CanvasLineChartComponent,
+    CanvasPieChartComponent,
+    CanvasInterpolationComponent
   ],
   imports: [
     BrowserModule,
@@ -89,6 +98,7 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
+    MatSnackBarModule,
     StoreModule.forRoot({imas: imasReducer})
   ],
   providers: [],

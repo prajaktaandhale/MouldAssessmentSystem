@@ -11,7 +11,7 @@ export class LeftPanelComponent implements OnInit {
   types: any[] = [
     {
       name: 'Dashboard',
-      route: 'dashboard',
+      route: 'home',
       type: 'primary',
       icon: 'dashboard',
       active: true
@@ -20,23 +20,7 @@ export class LeftPanelComponent implements OnInit {
       route: 'report',
       type: 'general',
       icon: 'bar_chart',
-      active: false,
-      level_1: [
-        {
-          name: 'Forecast',
-          route: 'report',
-          type: 'forcast',
-          icon: null,
-          active: false
-        },
-        {
-          name: 'Assesment result',
-          route: 'report',
-          type: 'assesment',
-          icon: null,
-          active: false
-        }
-      ]
+      active: false
     }, {
       name: 'Alerts',
       route: 'alerts',
@@ -56,15 +40,21 @@ export class LeftPanelComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.router);
-    this.router.events.subscribe((data: Data) => {
+    this.route.url.subscribe((data: Data) => {
       if (data instanceof ActivationEnd) {
-        console.log(data);
+        // url
+        //this.showActive(data.url);
       }
     });
   }
 
-  routeToPage(type) {
+  showActive(type) {
     this.types.forEach(type => type.active = false);
-    this.types.find(t => t === type).active = true;
+    this.types.find(t => t.name === type.name).active = true;
+  }
+
+  routeToPage(type) {
+    this.showActive(type);
+    this.router.navigate([type.route]);
   }
 }

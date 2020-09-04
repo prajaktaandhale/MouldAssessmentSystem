@@ -14,17 +14,16 @@
           </mat-form-field>
         </div>
       </div>
-      <div class="">
-        
-        <canvas id="horizontalBar" #horizontalBar width="16% !important" height="8% !important"></canvas>
+      <div class="" *ngIf="showHorizontalBar">
+        <app-canvas-horizontal-bar [data]="data"></app-canvas-horizontal-bar>
       </div>
     </div>
     <div class="canvas-area" (click)="showMouldToAssess('Mould Status - Forecast')">
       <div class="details">
         <span>Mould Status - Forecast</span>
       </div>
-      <div class="">
-        <canvas id="lineChart" #lineChart width="16% !important" height="8% !important"></canvas>
+      <div class="" *ngIf="showLineChart">
+        <app-canvas-line-chart [data]="data"></app-canvas-line-chart>
       </div>
     </div>
   </div>
@@ -36,16 +35,17 @@
       <div class="details">
         <span>Today's assessment</span>
       </div>
-      <div class="">
-        <canvas id="pieChart" #pieChart width="16% !important" height="8% !important"></canvas>
+      <div class="" *ngIf="showLineChart">
+        <app-canvas-pie-chart [data]="data"></app-canvas-pie-chart>
       </div>
     </div>
     <div class="canvas-area" (click)="showResults('Historical Data')">
       <div class="details">
         <span>Historical Data</span>
       </div>
-      <div class="">
-        <canvas id="interpolation" #interpolation width="16% !important" height="8% !important"></canvas>
+      
+      <div class="" *ngIf="showLineChart">
+        <app-canvas-interpolation [data]="data"></app-canvas-interpolation>
       </div>
     </div>
   </div>

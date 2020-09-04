@@ -15,7 +15,7 @@ export class FetchDataService {
   }
   
   getMouldData() {
-    return this.http.get('https://localhost:8080/getPolygonData').pipe(map((data: Data) => data));
+    return this.http.get('https://jsonplaceholder.typicode.com/posts').pipe(map((data: Data) => data));
   }
 
   setData(response) {

@@ -1,0 +1,83 @@
+.canvas-area {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px !important;
+    width: 49%;
+    padding: 10px;
+  }
+  
+  div > .canvas-area:first-of-type {
+    margin-right: 2%;
+  }
+  /* 
+  .canvas-area > div:nth-child(2) {
+    padding-left: 150px;
+  } */
+  
+  .canvas {
+    position: absolute;
+    bottom: 15%;
+    left: 10px;
+  }
+  
+  .details {
+    font-size: 20px;
+    font-weight: 400;
+    color: #333;
+    text-align: left;
+    padding: 30px 0px 0px 50px;
+    margin-bottom: 5px;
+  }
+  
+  .header-label {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+  
+  
+  
+  /* .details > span {
+    border-bottom: 2px solid #4e73df;
+  } */
+  
+  .header {
+    color: #333;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 26px;
+    flex: auto;
+    text-align: center;
+    margin: 50px 0px;
+  }
+  
+  .header:after {
+    display: block;
+    height: 2px;
+    background-color: #555;
+    content: " ";
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .header:first-of-type {
+    margin-top: 0px;
+  }
+  
+  .header > span {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+  
+  .date-picker {
+    font-size: 14px;
+    margin-top: -14px;
+    float: right;
+  }
+  
+  .snackbar {
+    font-size: 60px !important;
+    margin-top: 50%;
+  }
