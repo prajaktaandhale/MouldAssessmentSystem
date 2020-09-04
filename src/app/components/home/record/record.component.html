@@ -17,10 +17,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-el let-columns="columns">
         <tr style="background-color: white;">
-            <td *ngFor="let col of columns; let i = index" (click)="onClickRecord($event, el)" 
-            [ngClass]="{'ok-background':(col.field === 'polygonStatus' && el && el[col.field] === 'Healthy'),
-            'warn-background':(col.field === 'polygonStatus' && el && el[col.field] === 'Needs Probe'),
-            'error-background':(col.field === 'polygonStatus' && el && el[col.field] === 'Disposable')}">
+            <td *ngFor="let col of columns; let i = index">
                     {{el[col.field]}}
             </td>
         </tr>

@@ -13,12 +13,3 @@
     padding-right: 73.5px;
     margin-left:10px;
 }
-.ok-background {
-    background-color: green !important;
-}
-.warn-background {
-    background-color: orange !important;
-}
-.error-background {
-    background-color: red !important;
-}
