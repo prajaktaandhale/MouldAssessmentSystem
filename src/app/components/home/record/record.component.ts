@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Polygon } from '../polygon.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Store } from '@ngrx/store';
+import * as fileSaver from 'file-saver';
+import {Observable} from 'rxjs';
 import { FetchDataService } from '../../../services/fetch-data.service';
 
 @Component({
@@ -41,19 +43,17 @@ export class RecordComponent implements OnInit {
     ];
     this.headerName = this.fetchService.getHeaderName();
   }
-
+  downloadFile(el): Observable<any>{		
+    return this.http.get(('http://localhost:8080/downloadFile/' + el.id), { responseType: 'blob' });   
+  }
   onClickRecord(event, el) {
-    this.http.get("http://localhost:8080/downloadFile/" + el.id).subscribe(
-      resData => {
-        console.log("request sent");
-        //this.blob = new Blob([resData], {type: 'application/pdf'});
-        var downloadURL = window.URL.createObjectURL(resData);
-        var link = document.createElement('a');
-        link.href = downloadURL;
-        link.download = "help.pdf";
-        link.click();
-      }
-    );
-  };
-
+    this.downloadFile(el).subscribe(response => {
+      let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
+			const url = window.URL.createObjectURL(blob);
+			//window.open(url);
+			//window.location.href = response.url;
+			fileSaver.saveAs(blob, 'Steeringwheel.json');
+		}), error => console.log('Error downloading the file'),
+                 () => console.info('File downloaded successfully');
+  }
 }
