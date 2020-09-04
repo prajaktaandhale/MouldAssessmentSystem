@@ -105,7 +105,7 @@ export class DashboardComponent implements OnInit {
     })
     console.log(data.join(''));
     this._snackBar.open(`Items pending for mould - ${data.join('')}`, 'X', {
-      panelClass: 'snackbar',
+      panelClass: ['snackbar'],
       verticalPosition: 'top'
     });
   }

@@ -29,7 +29,7 @@ export class HomeService implements Resolve<any> {
       this.fetchService.getMouldData().subscribe(data => {
         this.store.dispatch(new actions.SetData(stubdata2));
       });
-    }, 10000)
+    }, 10000000)
     return this.fetchService.getMouldData();
   };
 
