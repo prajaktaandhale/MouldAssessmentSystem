@@ -2,13 +2,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, Data } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { MatSnackBar } from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 import { FormControl } from '@angular/forms';
 import _ from 'lodash';
 import * as action from '../../../store/imas.actions';
 import stubdata from '../../../../assets/data/response.js';
 import { FetchDataService } from 'src/app/services/fetch-data.service.js';
 
-
+export interface categorySelected {
+  value: string;
+  display: string;
+}
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -20,11 +24,27 @@ export class DashboardComponent implements OnInit {
   public date = new FormControl(new Date());
   public horizontalBarSelectedDate = new Date();
   public params: any;
+  public locationValue = 'Steering Wheel';
   
   public showHorizontalBar: boolean = true;
   public showLineChart: boolean = true;
   public showPieChart: boolean = true;
   public showInterpolation: boolean = true;
+  categorySelected: categorySelected[] = [
+    {value: 'steeringWheel', display: 'Steering Wheel'},
+    {value: 'gear', display: 'Gear'},
+    {value: 'carburetor', display: 'Carburetor'}
+ ];
+ week: categorySelected[] = [
+  {value: 'week1', display: 'Week 1'},
+  {value: 'week2', display: 'Week 2'},
+  {value: 'week3', display: 'Week 3'}
+];
+monthly: categorySelected[] = [
+  {value: 'monthly', display: 'Monthly'},
+  {value: 'quaterly', display: 'Quaterly'},
+  {value: 'yearly', display: 'Yearly'}
+];
 
   constructor(
     private route: ActivatedRoute,
@@ -48,8 +68,8 @@ export class DashboardComponent implements OnInit {
       }
     });
     this.route.data.subscribe((data: Data) => {
-      this.store.dispatch(new action.SetData(stubdata));
-      this.data = stubdata;
+      this.store.dispatch(new action.SetData(data));
+      this.data = data;
       this.initialize();
     });
     

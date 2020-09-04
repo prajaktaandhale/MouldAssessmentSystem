@@ -21,6 +21,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
 import { ChartsModule } from 'ng2-charts';
 import { StoreModule } from '@ngrx/store';
+import {MatSelectModule} from '@angular/material'
 
 import {
   MatCardModule,
@@ -99,6 +100,7 @@ const appRoutes: Routes = [
     MatNativeDateModule,
     MatMenuModule,
     MatSnackBarModule,
+    MatSelectModule,
     StoreModule.forRoot({imas: imasReducer})
   ],
   providers: [],

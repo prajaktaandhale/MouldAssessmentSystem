@@ -22,7 +22,7 @@ export class CanvasLineChartComponent implements OnInit {
     this.lineChart = new Chart(lineChart, {
       type: 'line',
       data: {
-        labels: ["28/08","29/08","30/08","31/08","1/09"],
+        labels: ["05/09","06/09","07/09","08/09","09/09"],
         datasets: [{ 
             data: [200,190,180,170,160],
             label: "Healthy",
