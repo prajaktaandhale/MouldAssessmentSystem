@@ -40,7 +40,6 @@ export class TodayAssessmentTabelComponent implements OnInit {
       { field: 'assessDate', header: 'Assessment Date' },
       { field: 'polygonStatus', header: 'Status' },
     ];
-    this.headerName = this.fetchService.getHeaderName();
   }
 
   private calculateParams() {

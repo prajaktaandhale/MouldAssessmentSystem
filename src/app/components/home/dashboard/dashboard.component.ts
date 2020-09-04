@@ -69,7 +69,6 @@ export class DashboardComponent implements OnInit {
   }
   showResults(header: string) {
     this.router.navigate(['/home/todayStatus']);
-    this.fetchService.setHeaderName(header);
   }
 
   onDateChange(event) {

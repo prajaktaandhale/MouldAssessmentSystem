@@ -39,6 +39,5 @@ export class RecordComponent implements OnInit {
       { field: 'assessmentDate', header: 'Assessment Date' },
       { field: 'decommissionDate', header: 'Decommission Date' },
     ];
-    this.headerName = this.fetchService.getHeaderName();
   }
 }
