@@ -25,14 +25,4 @@ export class FetchDataService {
   getData() {
     return this.data;
   }
-
-  setHeaderName(header) {
-    this.header = header;
-  }
-
-  getHeaderName() {
-    return this.header;
-  }
-
-
 }

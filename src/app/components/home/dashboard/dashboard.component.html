@@ -31,9 +31,10 @@
     <span>Assessment Result</span>
   </div>
   <div class="row col-12">
-    <div class="canvas-area" (click)="showResults('Today\'s assessment')">
+    <div class="canvas-area" (click)="showResults('Today\'s Assessment')">
       <div class="details">
-        <span>Today's assessment</span>
+
+        <span>Today's Assessment</span>
       </div>
       <div class="" *ngIf="showLineChart">
         <app-canvas-pie-chart [data]="data" [params]="params"></app-canvas-pie-chart>

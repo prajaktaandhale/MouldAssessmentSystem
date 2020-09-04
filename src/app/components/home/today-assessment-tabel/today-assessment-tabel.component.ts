@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { FetchDataService } from '../../../services/fetch-data.service';
+import * as fileSaver from 'file-saver';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-today-assessment-tabel',
@@ -38,7 +40,6 @@ export class TodayAssessmentTabelComponent implements OnInit {
       { field: 'assessDate', header: 'Assessment Date' },
       { field: 'polygonStatus', header: 'Status' },
     ];
-    this.headerName = this.fetchService.getHeaderName();
   }
 
   private calculateParams() {
@@ -71,12 +72,16 @@ export class TodayAssessmentTabelComponent implements OnInit {
     ]
   }
 
+  downloadFile(el): Observable<any>{		
+    return this.http.get(('http://localhost:8080/downloadFile/' + el.id), { responseType: 'blob' });   
+  }
   onClickRecord(event, el) {
-    this.http.get("http://localhost:8080/downloadFile/" + el.id).subscribe(
-      resData => {
-        console.log("request sent");
-      }
-    );
-  };
+    this.downloadFile(el).subscribe(response => {
+      let blob:any = new Blob([response], { type: 'text/json; charset=utf-8' });
+			const url = window.URL.createObjectURL(blob);
+			fileSaver.saveAs(blob, el.sku + '.ply');
+		}), error => console.log('Error downloading the file'),
+                 () => console.info('File downloaded successfully');
+  }
 
 }
