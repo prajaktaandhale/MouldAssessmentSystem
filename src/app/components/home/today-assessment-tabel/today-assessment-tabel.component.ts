@@ -29,7 +29,7 @@ export class TodayAssessmentTabelComponent implements OnInit {
       }
     });
     this.cols = [
-      { field: 'sku', header: 'Sku' },
+      { field: 'sku', header: 'SKU' },
       { field: 'mouldId', header: 'Mould' },
       { field: 'category', header: 'Category' },
       { field: 'make', header: 'Make' },

@@ -29,11 +29,6 @@ export class CanvasLineChartComponent implements OnInit {
             borderColor: "#4272d7",
             fill: false
           }, { 
-            data: [250,300,249,350,182],
-            label: "Needs Probe",
-            borderColor: "orange",
-            fill: false
-          }, { 
             data: [300,310,259,230,190],
             label: "Disposable",
             borderColor: "grey",

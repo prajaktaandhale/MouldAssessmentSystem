@@ -30,7 +30,7 @@ export class RecordComponent implements OnInit {
       }
     });
     this.cols = [
-      { field: 'sku', header: 'Sku' },
+      { field: 'sku', header: 'SKU' },
       { field: 'mouldId', header: 'Mould' },
       { field: 'category', header: 'Category' },
       { field: 'manufacturor', header: 'Make' },
@@ -46,6 +46,12 @@ export class RecordComponent implements OnInit {
     this.http.get("http://localhost:8080/downloadFile/" + el.id).subscribe(
       resData => {
         console.log("request sent");
+        //this.blob = new Blob([resData], {type: 'application/pdf'});
+        var downloadURL = window.URL.createObjectURL(resData);
+        var link = document.createElement('a');
+        link.href = downloadURL;
+        link.download = "help.pdf";
+        link.click();
       }
     );
   };

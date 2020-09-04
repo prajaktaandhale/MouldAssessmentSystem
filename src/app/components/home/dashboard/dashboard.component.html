@@ -6,7 +6,7 @@
     <div class="canvas-area" (click)="showMouldToAssess('Moulds Assessment Recommended for Today')">
       <div class="details">
         <span>Moulds Assessment Recommended for Today</span>
-        <div class="date-picker">
+        <div class="row date-picker">
           <mat-form-field appearance="fill">
             <input matInput [matDatepicker]="picker1" [formControl]="date" (dateChange)="onDateChange($event)">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
