@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   public forecastedCategories: string[] = [];
   public date = new FormControl(new Date());
   public horizontalBarSelectedDate = new Date();
+  public params: any;
   
   public showHorizontalBar: boolean = true;
   public showLineChart: boolean = true;
@@ -61,6 +62,7 @@ export class DashboardComponent implements OnInit {
     this.showInterpolation = true;
     this.getLabels();
     this.showSnackbar();
+    this.calculateParams();
   }
   showMouldToAssess() {
     this.router.navigate(['/home/records']);
@@ -108,6 +110,27 @@ export class DashboardComponent implements OnInit {
       panelClass: ['snackbar'],
       verticalPosition: 'top',
       
+    });
+  }
+
+  private calculateParams() {
+    this.params = {
+      healthy: 0,
+      needProbe: 0,
+      disposable: 0
+    }
+    this.data.assessedPolygonlist.forEach(el => {
+      switch (el.polygonStatus.toLowerCase()) {
+        case 'healthy':
+          this.params.healthy = this.params.healthy + 1;
+          break;
+        case 'needs to probe':
+          this.params.needProbe = this.params.needProbe + 1;
+          break;
+        case 'disposable':
+          this.params.disposable = this.params.disposable + 1;
+          break;                
+      }
     });
   }
 }

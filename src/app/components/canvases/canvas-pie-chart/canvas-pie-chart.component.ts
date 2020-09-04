@@ -10,11 +10,14 @@ import _ from 'lodash';
 export class CanvasPieChartComponent implements OnInit {
   @ViewChild('pieChart', null) pieChart;
   @Input() data;
+  @Input() params;
 
   constructor() { }
 
   ngOnInit() {
     this.handlePieChart();
+    console.log('pie');
+    console.log(this.params);
   }
 
   handlePieChart() {
@@ -27,7 +30,7 @@ export class CanvasPieChartComponent implements OnInit {
         datasets: [{
           label: "Population (millions)",
           backgroundColor: ["orange", "#4272d7","grey"],
-          data: [28,59,13]
+          data: [this.params.needProbe, this.params.healthy, this.params.disposable]
         }]
       },
       options: {

@@ -36,7 +36,7 @@
         <span>Today's assessment</span>
       </div>
       <div class="" *ngIf="showLineChart">
-        <app-canvas-pie-chart [data]="data"></app-canvas-pie-chart>
+        <app-canvas-pie-chart [data]="data" [params]="params"></app-canvas-pie-chart>
       </div>
     </div>
     <div class="canvas-area" (click)="showResults('Historical Data')">
