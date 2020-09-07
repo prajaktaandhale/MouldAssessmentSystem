@@ -17,18 +17,12 @@ export class CanvasVerticalBarComponent implements OnInit {
       type: 'bar',
       data: {
         labels: ["Foboha GmbH", "Arburg GmbH", "Braunform GmbH", "Fostag Formenbau AG"],
-        datasets: [{
-            label: "Baseline",
-            type: "line",
-            borderColor: "orange",
-            data: [4,4,4,4],
-            fill: false
-          }, {
-            label: "Avg Lifecycle in years",
+        datasets: [ {
+            label: "Cost/Run",
             type: "bar",
             backgroundColor: "#4272d7",
             backgroundColorHover: "#3e95cd",
-            data: [2,8,5,9],
+            data: [8,10,20,10],
           }
         ]
       },
@@ -38,6 +32,11 @@ export class CanvasVerticalBarComponent implements OnInit {
             ticks: {
               beginAtZero: true,
               stepSize: 2
+            }
+          }],
+          xAxes : [{
+            ticks: {
+              fontSize: 10
             }
           }],
         },

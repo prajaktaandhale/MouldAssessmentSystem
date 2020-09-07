@@ -48,6 +48,14 @@ export class CanvasHorizontalBarComponent implements OnInit {
         legend: { display: true, position: 'bottom' },
         title: {
           display: true
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              stepSize: 1
+            }
+          }],
         }
       }
     });
