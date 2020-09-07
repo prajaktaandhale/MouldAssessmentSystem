@@ -20,7 +20,7 @@
     </div>
     <div class="canvas-area">
       <div class="details">
-        <span>Mould Status - Forecast</span>
+        <span>Mould Lifecycle - Forecast</span>
         <div class="row">
           <mat-form-field class="col-6">
             <mat-select placeholder = "Steering Wheel" 
@@ -44,6 +44,27 @@
       </div>
       <div class="" *ngIf="showLineChart" (click)="showMouldToAssess('Mould Status - Forecast')">
         <app-canvas-line-chart [data]="data"></app-canvas-line-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row col-12" style="padding-top: 2%;margin-left: 25%">
+    <div class="canvas-area">
+      <div class="details">
+        <span style="width:60% !important">Vendor Performance Measurement</span>
+        <div class="row">
+          <mat-form-field class="col-6">
+            <mat-select placeholder = "Tire" 
+               [(ngModel)] = "selectedValue" name = "food">
+               <mat-option *ngFor = "let food of categorySelected" 
+                  [value] = "food.value">
+                  {{food.display}}
+               </mat-option>
+            </mat-select>
+         </mat-form-field>
+        </div>
+      </div>
+      <div class="" *ngIf="showVerticalBar">
+        <app-canvas-vertical-bar></app-canvas-vertical-bar>
       </div>
     </div>
   </div>

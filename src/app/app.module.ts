@@ -43,6 +43,7 @@ import { CanvasHorizontalBarComponent } from './components/canvases/canvas-horiz
 import { CanvasLineChartComponent } from './components/canvases/canvas-line-chart/canvas-line-chart.component';
 import { CanvasPieChartComponent } from './components/canvases/canvas-pie-chart/canvas-pie-chart.component';
 import { CanvasInterpolationComponent } from './components/canvases/canvas-interpolation/canvas-interpolation.component';
+import { CanvasVerticalBarComponent } from './components/canvases/canvas-vertical-bar/canvas-vertical-bar.component';
 
 const appRoutes: Routes = [
   { path: "", component: LoginComponent },
@@ -70,7 +71,8 @@ const appRoutes: Routes = [
     CanvasHorizontalBarComponent,
     CanvasLineChartComponent,
     CanvasPieChartComponent,
-    CanvasInterpolationComponent
+    CanvasInterpolationComponent,
+    CanvasVerticalBarComponent
   ],
   imports: [
     BrowserModule,

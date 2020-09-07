@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
   public showLineChart: boolean = true;
   public showPieChart: boolean = true;
   public showInterpolation: boolean = true;
+  public showVerticalBar : boolean = true;
   categorySelected: categorySelected[] = [
     {value: 'steeringWheel', display: 'Steering Wheel'},
     {value: 'gear', display: 'Gear'},
@@ -62,6 +63,7 @@ monthly: categorySelected[] = [
         this.showLineChart = false;
         this.showPieChart = false;
         this.showInterpolation = false;
+        this.showVerticalBar = false;
         setTimeout(() => {
           this.initialize();
         }, 50);
@@ -80,6 +82,7 @@ monthly: categorySelected[] = [
     this.showLineChart = true;
     this.showPieChart = true;
     this.showInterpolation = true;
+    this.showVerticalBar = true;
     this.getLabels();
     this.showSnackbar();
     this.calculateParams();

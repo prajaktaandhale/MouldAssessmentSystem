@@ -24,7 +24,7 @@ export class CanvasInterpolationComponent implements OnInit {
       data: {
         labels: ["June", "July", "August", "Sept"],
         datasets: [{
-            label: "Disposable",
+            label: "Decommissioned",
             type: "line",
             borderColor: "orange",
             data: [50,20,25,30],

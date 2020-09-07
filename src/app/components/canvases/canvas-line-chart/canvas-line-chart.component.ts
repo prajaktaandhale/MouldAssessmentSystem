@@ -30,7 +30,7 @@ export class CanvasLineChartComponent implements OnInit {
             fill: false
           }, { 
             data: [300,310,259,230,190],
-            label: "Disposable",
+            label: "Decommission",
             borderColor: "grey",
             fill: false
           }
