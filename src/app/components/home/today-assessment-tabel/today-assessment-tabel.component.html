@@ -37,7 +37,7 @@
     <tr style="background-color: white;">
       <td *ngFor="let col of columns; let i = index" (click)="onClickRecord($event, el)"
        [ngClass]="{'ok-background':(col.field === 'polygonStatus' && el && el[col.field] === 'Healthy'),
-      'warn-background':(col.field === 'polygonStatus' && el && el[col.field] === 'Needs Probe'),
+      'warn-background':(col.field === 'polygonStatus' && el && el[col.field] === 'Need Probe'),
       'error-background':(col.field === 'polygonStatus' && el && el[col.field] === 'Disposable')}">
         {{el[col.field]}}
       </td>

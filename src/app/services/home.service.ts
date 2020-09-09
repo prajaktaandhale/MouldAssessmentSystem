@@ -23,13 +23,13 @@ export class HomeService implements Resolve<any> {
 
   resolve(): any {
     if (this.isDataFetched) {
-      return this.homedata;
+      return this.homedata.data;
     }
     setInterval(() => {
       this.fetchService.getMouldData().subscribe(data => {
-        this.store.dispatch(new actions.SetData(stubdata2));
+        this.store.dispatch(new actions.SetData(data));
       });
-    }, 10000000)
+    }, 20000)
     return this.fetchService.getMouldData();
   };
 

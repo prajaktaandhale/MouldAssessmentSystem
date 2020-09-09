@@ -37,9 +37,9 @@ export class DashboardComponent implements OnInit {
     {value: 'carburetor', display: 'Carburetor'}
  ];
  week: categorySelected[] = [
-  {value: 'week1', display: 'Week 1'},
-  {value: 'week2', display: 'Week 2'},
-  {value: 'week3', display: 'Week 3'}
+  {value: 'week1', display: 'Week'},
+  {value: 'week2', display: 'Month'},
+  {value: 'week3', display: 'Quarter'}
 ];
 monthly: categorySelected[] = [
   {value: 'monthly', display: 'Monthly'},
@@ -70,8 +70,8 @@ monthly: categorySelected[] = [
       }
     });
     this.route.data.subscribe((data: Data) => {
-      this.store.dispatch(new action.SetData(data));
-      this.data = data;
+      this.store.dispatch(new action.SetData(data.data));
+      this.data = data.data;
       this.initialize();
     });
     
@@ -128,7 +128,7 @@ monthly: categorySelected[] = [
       }
     })
     console.log(data.join(''));
-    this._snackBar.open(`Items pending for mould - ${data.join('')}`, 'X', {
+    this._snackBar.open(`Assessment completed for - ${data.join('')}`, 'X', {
       panelClass: ['snackbar'],
       verticalPosition: 'top',
       
@@ -146,7 +146,7 @@ monthly: categorySelected[] = [
         case 'healthy':
           this.params.healthy = this.params.healthy + 1;
           break;
-        case 'needs to probe':
+        case 'need probe':
           this.params.needProbe = this.params.needProbe + 1;
           break;
         case 'disposable':

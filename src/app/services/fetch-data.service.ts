@@ -15,7 +15,9 @@ export class FetchDataService {
   }
   
   getMouldData() {
-    return this.http.get('http://localhost:8080/getPolygonData').pipe(map((data: Data) => data));
+    return this.http.get('http://localhost:8080/getPolygonData').pipe(map((data: Data) => {
+      return data;
+    }));
   }
 
   setData(response) {

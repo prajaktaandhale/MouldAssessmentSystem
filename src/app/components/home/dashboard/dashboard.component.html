@@ -5,14 +5,8 @@
   <div class="row col-12">
     <div class="canvas-area" (click)="showMouldToAssess('Moulds Assessment Recommended for Today')">
       <div class="details">
-        <span>Moulds Assessment Recommended for Today</span>
-        <div class="row date-picker">
-          <mat-form-field appearance="fill">
-            <input matInput [matDatepicker]="picker1" [formControl]="date" (dateChange)="onDateChange($event)">
-            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-            <mat-datepicker #picker1></mat-datepicker>
-          </mat-form-field>
-        </div>
+        Moulds Assessment Recommended for Today
+        
       </div>
       <div class="" *ngIf="showHorizontalBar">
         <app-canvas-horizontal-bar [data]="data"></app-canvas-horizontal-bar>
@@ -32,7 +26,7 @@
             </mat-select>
          </mat-form-field>
          <mat-form-field class="col-6">
-          <mat-select placeholder = "Week 2" 
+          <mat-select placeholder = "Week" 
              [(ngModel)] = "selectedValue" name = "food">
              <mat-option *ngFor = "let food of week" 
                 [value] = "food.value">
@@ -44,27 +38,6 @@
       </div>
       <div class="" *ngIf="showLineChart" (click)="showMouldToAssess('Mould Status - Forecast')">
         <app-canvas-line-chart [data]="data"></app-canvas-line-chart>
-      </div>
-    </div>
-  </div>
-  <div class="row col-12" style="padding-top: 2%;margin-left: 25%">
-    <div class="canvas-area">
-      <div class="details">
-        <span style="width:60% !important">Vendor Performance Measurement</span>
-        <div class="row">
-          <mat-form-field class="col-6">
-            <mat-select placeholder = "Steering Wheel" 
-               [(ngModel)] = "selectedValue" name = "food">
-               <mat-option *ngFor = "let food of categorySelected" 
-                  [value] = "food.value">
-                  {{food.display}}
-               </mat-option>
-            </mat-select>
-         </mat-form-field>
-        </div>
-      </div>
-      <div class="" *ngIf="showVerticalBar">
-        <app-canvas-vertical-bar></app-canvas-vertical-bar>
       </div>
     </div>
   </div>
@@ -115,6 +88,27 @@
       </div>
       <div class="" *ngIf="showLineChart">
         <app-canvas-interpolation [data]="data"></app-canvas-interpolation>
+      </div>
+    </div>
+  </div>
+  <div class="row col-12" style="padding-top: 2%;margin-left: 25%">
+    <div class="canvas-area">
+      <div class="details">
+        <span style="width:80% !important">Vendor Performance Measurement</span>
+        <div class="row">
+          <mat-form-field class="col-6">
+            <mat-select placeholder = "Steering Wheel" 
+               [(ngModel)] = "selectedValue" name = "food">
+               <mat-option *ngFor = "let food of categorySelected" 
+                  [value] = "food.value">
+                  {{food.display}}
+               </mat-option>
+            </mat-select>
+         </mat-form-field>
+        </div>
+      </div>
+      <div class="" *ngIf="showVerticalBar">
+        <app-canvas-vertical-bar></app-canvas-vertical-bar>
       </div>
     </div>
   </div>

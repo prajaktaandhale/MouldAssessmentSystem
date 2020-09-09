@@ -37,10 +37,13 @@
 }
 .ok-background {
     background-color: green !important;
+	color: white;
 }
 .warn-background {
     background-color: orange !important;
+	color: white;
 }
 .error-background {
     background-color: red !important;
+	color: white;
 }

@@ -53,7 +53,7 @@ export class TodayAssessmentTabelComponent implements OnInit {
         case 'healthy':
           this.params.healthy = this.params.healthy + 1;
           break;
-        case 'needs to probe':
+        case 'need probe':
           this.params.needProbe = this.params.needProbe + 1;
           break;
         case 'disposable':

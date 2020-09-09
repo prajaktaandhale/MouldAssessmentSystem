@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { Chart } from '../../../../../node_modules/chart.js';
 import _ from 'lodash';
+//import { min, max } from 'rxjs/operators';
 
 @Component({
   selector: 'app-canvas-horizontal-bar',
@@ -13,6 +14,7 @@ export class CanvasHorizontalBarComponent implements OnInit {
   @ViewChild('horizontalBar', null) horizontalBar;
   public forecastedCategories: string[] = [];
   @Input() data;
+ // min; max;
   constructor() { }
 
   ngOnInit() {
@@ -39,7 +41,7 @@ export class CanvasHorizontalBarComponent implements OnInit {
         datasets: [
           {
             label: "Number",
-            backgroundColor: ["orange", "orange"],
+            backgroundColor: ["orange", "green", "red"],
             data: Object.values(this.getHorizontalBarData())
           }
         ]
@@ -56,6 +58,12 @@ export class CanvasHorizontalBarComponent implements OnInit {
               stepSize: 1
             }
           }],
+          xAxes: [{
+            ticks: {
+              beginAtZero: true,
+              stepSize: 1
+            }
+          }]
         }
       }
     });
@@ -70,6 +78,21 @@ export class CanvasHorizontalBarComponent implements OnInit {
     this.horizontalBar.update();
   }
 
+  // handleXAxis(data) {
+  //   this.min = Math.min.apply(null, data);
+  //   this.max = Math.max.apply(null, data);
+  //   if (this.horizontalBar.options){
+  //     this.horizontalBar.options.scales.xAxes = [{
+  //       ticks: {
+  //         min: this.min,
+  //         max: this.max,
+  //         stepSize: 1
+  //       }
+  //     }]
+
+  //   }
+  // }
+
   getHorizontalBarData() {
     const categories = this.forecastedCategories;
     const data = {};
@@ -79,6 +102,7 @@ export class CanvasHorizontalBarComponent implements OnInit {
       }).length;
       data[el] = count;
     });
+    //this.handleXAxis(data);
     return data;
   }
 
